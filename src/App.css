@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button_primary {
+  color: #ffffff;
+  background: #eb5017;
+}
+
+.button_primary_outline {
+  color: #eb5017;
+  border: 1px solid #eb5017;
+}
+
+.button_primary_light {
+  color: #344054;
+  border: 2px solid #d0d5dd;
+}
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
