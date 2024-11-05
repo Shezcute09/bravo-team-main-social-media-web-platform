@@ -6,7 +6,7 @@ import amico1 from '../../assets/images/amico1.png'; // Adjust the path
 import bravo from '../../assets/images/bravo.svg'; // Adjust the path
 import dot from '../../assets/images/dot.svg'; // Adjust the path
 
-const Signup = () => {
+const SignupForm = () => {
   const navigate = useNavigate();
 
   // Handlers for navigating to different routes
@@ -36,7 +36,7 @@ const Signup = () => {
           </div>
           <h2 className="text-xl font-bold">Welcome to BravoNet</h2>
           <img src={amico1} alt="Illustration" className="w-[300px] h-[300px]" />
-          <p className="mt-4 text-center">
+          <p className="mt-4 text-white text-center">
             Connect, share, and discover in a space created just for you. Let's get started!
           </p>
           <img src={dot} alt="Dot" className="mt-8 w-[59px] h-[10px]" />

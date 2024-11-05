@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
@@ -8,10 +8,14 @@ import amico1 from '../../assets/images/amico1.png';
 import bravo from '../../assets/images/bravo.svg';
 import dot from '../../assets/images/dot.svg';
 import user from '../../assets/images/user.svg';
-import eyeicon from '../../assets/images/eyeicon.svg';
+import eyeicon from '../../assets/images/eyeicon.svg'; // Add an eye-open icon
+import eyeiconclosed from '../../assets/images/eyeiconclosed.svg'; // Add an eye-closed icon for hiding password
 
-const Login = () => {
+const LoginForm = () => {
   const navigate = useNavigate();
+  
+  // State to toggle password visibility
+  const [showPassword, setShowPassword] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -27,6 +31,11 @@ const Login = () => {
     },
   });
 
+  // Toggle function for the password field
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="flex justify-center items-center" style={{ width: '1440px', height: '1024px' }}>
       <div className="bg-blue-600 text-white flex flex-col justify-center items-center" style={{ width: '602px', height: '1024px' }}>
@@ -37,7 +46,7 @@ const Login = () => {
           </div>
           <h2 className="text-xl font-bold">Welcome to BravoNet</h2>
           <img src={amico1} alt="Illustration" className="w-[300px] h-[300px]" />
-          <p className="mt-4 text-center">
+          <p className="mt-4 text-white text-center">
             Connect, share, and discover in a space created just for you. Let's get started!
           </p>
           <img src={dot} alt="Dot" className="mt-8 w-[59px] h-[10px]" />
@@ -104,15 +113,19 @@ const Login = () => {
                   <input
                     id="password"
                     name="password"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'} // Toggle between text and password
                     placeholder="Enter your password"
                     className="w-full border border-blue-600 text-gray-700 px-4 py-2 rounded-md focus:outline-none focus:border-blue-600"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.password}
                   />
-                  <span className="absolute right-4">
-                    <img src={eyeicon} alt="Show password" className="h-5 w-5 text-blue-600 cursor-pointer" />
+                  <span className="absolute right-4 cursor-pointer" onClick={togglePasswordVisibility}>
+                    <img
+                      src={showPassword ? eyeiconclosed : eyeicon} // Change icon based on password visibility
+                      alt="Toggle password visibility"
+                      className="h-5 w-5 text-blue-600"
+                    />
                   </span>
                 </div>
                 {formik.touched.password && formik.errors.password ? (
@@ -124,12 +137,12 @@ const Login = () => {
                 Login
               </button>
               <button
-  type="button"
-  className="w-full border-2 border-blue-600 text-black py-2 rounded-md"
-  onClick={() => navigate('/forget-password')} // Navigate to ForgetPassword page
->
-  Forgot Password?
-</button>
+                type="button"
+                className="w-full border-2 border-blue-600 text-black py-2 rounded-md"
+                onClick={() => navigate('/forget-password')}
+              >
+                Forgot Password?
+              </button>
 
               <p className="text-sm mt-4">
                 Don't have an account?{' '}
@@ -145,5 +158,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
+export default LoginForm;
