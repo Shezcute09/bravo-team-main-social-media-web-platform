@@ -31,6 +31,7 @@ const SignupSchema = Yup.object().shape({
 const SetNewPassword = () => {
   let redir = useNavigate();
   let [toggle, setToggle] =useState(false);
+  let [Newtoggle, setNewToggle]= useState(false);
 
   return (
     <div className='h-screen w-full flex flex-row flex-wrap'>
@@ -94,7 +95,8 @@ const SetNewPassword = () => {
         <fieldset>
           <label className='font-bold text-xl' htmlFor="password">Create New Password</label>
           <div className='relative flex flex-col gap-1 ' >
-          <Field id='password' className='text-sm font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]' name="password" type={toggle ?'text':'password'}
+          <Field id='password' className='text-sm font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]' 
+          name="password" type={toggle ?'text':'password'}
           placeholder='Enter New Password'/>
           <div className='absolute top-2 right-3 text-blue-800'>
            {toggle ? <PiEyeLight onClick={()=>setToggle(prev=> !prev)} />:
@@ -106,18 +108,19 @@ const SetNewPassword = () => {
        {errors.password && touched.password ? <div className=''>{errors.password}</div> : null}
        
         <fieldset className='mt-4'>
-          <label className='font-bold text-xl' htmlFor="password">Re-Enter New Password</label>
+          <label className='font-bold text-xl' htmlFor="Newpassword">Re-Enter New Password</label>
           <div className='relative flex flex-col gap-1 ' >
-          <Field id='password' className='text-sm font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]' name="password" type={toggle ?'text':'password'}
+          <Field id='Newpassword' className='text-sm font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]' 
+          name="Newpassword" type={Newtoggle ?'text':'password'}
           placeholder='Re-Enter New Password'/>
           <div className='absolute top-2 right-3 text-blue-800'>
-           {toggle ? <PiEyeLight onClick={()=>setToggle(prev=> !prev)} />:
-               <PiEyeSlashThin onClick={()=>setToggle(prev=> !prev)} />
+           {Newtoggle ? <PiEyeLight onClick={()=>setNewToggle(prev=> !prev)} />:
+               <PiEyeSlashThin onClick={()=>setNewToggle(prev=> !prev)} />
                }
           </div>
           </div>
        </fieldset>
-       {errors.password && touched.password ? <div className=''>{errors.password}</div> : null}
+       {errors.Newpassword && touched.Newpassword ? <div className=''>{errors.Newpassword}</div> : null}
 
        <button className='w-full mt-10 border-2 border-blue-600  py-2 bg-blue-600 rounded-full text-base font-semibold text-white' 
         onClick={() => navigate('/login')} type="submit">Set New Password</button>
