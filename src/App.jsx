@@ -1,13 +1,11 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import SignupForm from './_auth/forms/SignupForm';
-import RootLayout from './_root/RootLayout';
-import LoginForm from './_auth/forms/LoginForm';
-import CreateNewAccount from './_auth/forms/CreateNewAccount';
-import ForgotPassword from './_auth/forms/ForgotPassword';
-import SetNewPassword from './_auth/forms/SetNewPassword';
-import VerifyCode from './_auth/forms/VerifyCode';
-
+import { Routes, Route, Navigate } from "react-router-dom";
+import SignupForm from "./_auth/forms/SignupForm";
+import RootLayout from "./_root/RootLayout";
+import LoginForm from "./_auth/forms/LoginForm";
+import CreateNewAccount from "./_auth/forms/CreateNewAccount";
+import ForgotPassword from "./_auth/forms/ForgotPassword";
+import SetNewPassword from "./_auth/forms/SetNewPassword";
+import VerifyCode from "./_auth/forms/VerifyCode";
 
 function App() {
   return (
@@ -20,11 +18,11 @@ function App() {
         <Route path="signup" element={<SignupForm />} />
         <Route path="login" element={<LoginForm />} />
         <Route path="/create-new-account" element={<CreateNewAccount />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/set-new-password" element={<SetNewPassword />} />
-          <Route path="/verify-code" element={<VerifyCode />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/set-new-password" element={<SetNewPassword />} />
+        <Route path="/verify-code" element={<VerifyCode />} />
       </Route>
-      
+
       {/* 404 Not Found Route */}
       <Route path="*" element={<h1>404 - Page Not Found</h1>} />
     </Routes>
@@ -32,10 +30,6 @@ function App() {
 }
 
 export default App;
-
-
-
-
 
 // import { Routes, Route } from "react-router-dom";
 // // import { Image } from "cloudinary-react";

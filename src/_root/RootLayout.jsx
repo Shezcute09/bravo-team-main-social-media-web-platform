@@ -1,5 +1,4 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom'; // Import Outlet for nested routes
+import { Outlet } from "react-router-dom"; // Import Outlet for nested routes
 
 const RootLayout = () => {
   return (
@@ -11,7 +10,6 @@ const RootLayout = () => {
 };
 
 export default RootLayout;
-
 
 // const RootLayout = () => {
 //   return (
