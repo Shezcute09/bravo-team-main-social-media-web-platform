@@ -1,10 +1,9 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import google from '../../assets/images/google.svg'; // Adjust the path
-import appleicon from '../../assets/images/appleicon.svg'; // Adjust the path
-import amico1 from '../../assets/images/amico1.png'; // Adjust the path
-import bravo from '../../assets/images/bravo.svg'; // Adjust the path
-import dot from '../../assets/images/dot.svg'; // Adjust the path
+import { useNavigate } from "react-router-dom";
+import google from "../../assets/images/google.svg"; // Adjust the path
+import appleicon from "../../assets/images/appleicon.svg"; // Adjust the path
+import amico1 from "../../assets/images/amico1.png"; // Adjust the path
+import bravo from "../../assets/images/bravo.svg"; // Adjust the path
+import dot from "../../assets/images/dot.svg"; // Adjust the path
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -12,42 +11,49 @@ const SignupForm = () => {
   // Handlers for navigating to different routes
   const handleGoogleSignup = () => {
     // You can also add actual Google signup functionality here
-    navigate('/next-page'); // Change to the actual route for next page
+    navigate("/next-page"); // Change to the actual route for next page
   };
 
   const handleAppleSignup = () => {
     // You can also add actual Apple signup functionality here
-    navigate('/next-page'); // Change to the actual route for next page
+    navigate("/next-page"); // Change to the actual route for next page
   };
 
   const handleCreateAccount = () => {
     // You can also handle form submissions here or navigate directly
-    navigate('/next-page'); // Change to the actual route for next page
+    navigate("/next-page"); // Change to the actual route for next page
   };
 
   return (
-    <div className="flex justify-center items-center" style={{ width: '1440px', height: '1024px' }}>
+    <div className="flex justify-center items-center h-screen">
       {/* Left Section - Blue Banner */}
-      <div className="bg-blue-600 text-white flex flex-col justify-center items-center" style={{ width: '602px', height: '1024px' }}>
-        <div className="flex flex-col items-center" style={{ width: '396px', height: '628px' }}>
+      <div className="bg-blue-600 w-[602px] h-screen text-white flex flex-col justify-center items-center">
+        <div className="flex flex-col items-center justify-center w-[396px] h-screen">
           <div className="flex items-center mb-4">
-            <img src={bravo} alt="BravoNet" className="h-[100px] w-[100px]" />
+            <img src={bravo} alt="BravoNet" />
             <span className="ml-2 text-3xl font-bold">BravoNet</span>
           </div>
           <h2 className="text-xl font-bold">Welcome to BravoNet</h2>
-          <img src={amico1} alt="Illustration" className="w-[300px] h-[300px]" />
+          <img
+            src={amico1}
+            alt="Illustration"
+            className="w-[300px] h-[300px]"
+          />
           <p className="mt-4 text-white text-center">
-            Connect, share, and discover in a space created just for you. Let's get started!
+            Connect, share, and discover in a space created just for you. Let's
+            get started!
           </p>
           <img src={dot} alt="Dot" className="mt-8 w-[59px] h-[10px]" />
         </div>
       </div>
 
       {/* Right Section - Sign Up Options */}
-      <div className="flex justify-center items-center bg-white shadow-2xl" style={{ width: '838px', height: '1024px' }}>
+      <div className="flex w-[838px] justify-center h-screen items-center bg-white shadow-2xl">
         {/* Sign-Up Container */}
-        <div className="bg-white rounded-md p-8 w-[500px] -mt-48">
-          <h2 className="text-2xl font-bold text-blue-700 text-start mb-6">Sign Up</h2>
+        <div className="bg-white rounded-md p-8 w-[500px] ">
+          <h2 className="text-2xl font-bold text-blue-700 text-start mb-6">
+            Sign Up
+          </h2>
 
           <div className="space-y-4">
             {/* Sign Up with Google */}
@@ -84,21 +90,22 @@ const SignupForm = () => {
             </button>
 
             <p className="mt-4 text-sm text-gray-600">
-              By signing up, you agree to the{' '}
+              By signing up, you agree to the{" "}
               <a href="#" className="text-blue-600 underline">
                 Terms of Service
-              </a>{' '}
-              and{' '}
+              </a>{" "}
+              and{" "}
               <a href="#" className="text-blue-600 underline">
                 Privacy Policy
-              </a>.
+              </a>
+              .
             </p>
 
             <p className="mt-6 text-center">Already have an account?</p>
 
             {/* Login Button */}
             <button
-              onClick={() => navigate('/login')}
+              onClick={() => navigate("/login")}
               className="w-full border-2 border-blue-600 text-black py-2 rounded-md"
             >
               Login
@@ -111,4 +118,3 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
-
