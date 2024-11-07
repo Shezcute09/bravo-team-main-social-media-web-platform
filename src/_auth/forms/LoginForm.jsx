@@ -49,8 +49,8 @@ const LoginForm = () => {
           <h2 className="text-xl font-bold">Welcome to BravoNet</h2>
           <img src={amico1} alt="Illustration" />
           <p className="mt-4 text-white text-center">
-            Connect, share, and discover in a space created just for you. Let's
-            get started!
+            Connect, share, and discover in a space created just for you.
+            Let&#39;s get started!
           </p>
           <img src={dot} alt="Dot" className="mt-8 w-[59px] h-[10px]" />
         </div>
@@ -164,7 +164,7 @@ const LoginForm = () => {
               <button
                 type="button"
                 className="w-full border-2 border-blue-600 text-black py-2 rounded-md"
-                onClick={() => navigate("/forget-password")}
+                onClick={() => navigate("/forgot-password")}
               >
                 Forgot Password?
               </button>

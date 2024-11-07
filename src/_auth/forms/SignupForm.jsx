@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import google from "../../assets/images/google.svg"; // Adjust the path
 import appleicon from "../../assets/images/appleicon.svg"; // Adjust the path
 import amico1 from "../../assets/images/amico1.png"; // Adjust the path
@@ -40,8 +40,8 @@ const SignupForm = () => {
             className="w-[300px] h-[300px]"
           />
           <p className="mt-4 text-white text-center">
-            Connect, share, and discover in a space created just for you. Let's
-            get started!
+            Connect, share, and discover in a space created just for you.
+            Let&apos;s get started!
           </p>
           <img src={dot} alt="Dot" className="mt-8 w-[59px] h-[10px]" />
         </div>
@@ -91,13 +91,13 @@ const SignupForm = () => {
 
             <p className="mt-4 text-sm text-gray-600">
               By signing up, you agree to the{" "}
-              <a href="#" className="text-blue-600 underline">
+              <Navigate to="" className="text-blue-600 underline">
                 Terms of Service
-              </a>{" "}
+              </Navigate>{" "}
               and{" "}
-              <a href="#" className="text-blue-600 underline">
+              <Navigate to="#" className="text-blue-600 underline">
                 Privacy Policy
-              </a>
+              </Navigate>
               .
             </p>
 
