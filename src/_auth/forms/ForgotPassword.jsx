@@ -18,47 +18,43 @@ const ForgotPassword = () => {
   return (
     <div className="h-screen w-full flex flex-row flex-wrap">
       {/* blue side */}
-      <div className="bg-[#0540F2] w-[40%] h-screen text-white flex flex-col justify-center items-center">
+      <div className="hidden bg-[#0540F2] w-[40%] h-screen text-white md:flex flex-col justify-center items-center">
         <div className="flex mt-10">
           <img className="w-[100px] h-[100px] -mt-5" src={logo} alt="" />
-          <h1 className="ml-2 text-5xl font-bold">BravoNet</h1>
+          <h1 className="ml-2 md:text-4xl lg:text-5xl font-bold">BravoNet</h1>
         </div>
-        <div className="text-center justify-center ">
-          <h1 className="text-3xl font-semibold mt-8">Welcome to BravoNet</h1>
+        <div className="text-center justify-center">
+          <h1 className="md:text-[26px] lg:text-3xl font-semibold mt-8">Welcome to BravoNet</h1>
           <Image
-            className=""
+            className="lg:ml-10"
             loading="lazy"
             cloudName="dml48ptj8"
             publicId="https://res.cloudinary.com/dml48ptj8/image/upload/v1730573582/Welcome-amico_1_xd73nr.png"
           ></Image>
-          <p className="text-xl font-normal text-center text-white">
-            Connect, share, and discover in a <br /> space created just for you.
-            Let’s get <br /> started!
+          <p className="md:text-lg lg:text-2xl md:w-[300px] lg:w-[396px] font-normal text-center text-white">
+            Connect, share, and discover in a  space created just for you.Let’s get started!
           </p>
           <img src={dots} alt="Dot" className="mt-8 mx-auto" />
         </div>
       </div>
       {/*white side */}
-      <div className="justify-center items-center mx-auto mt-32">
-        <div className="w-[600px]">
+      <div className="justify-center items-center lg:w-[60%] px-6 md:mx-auto md:mt-20 lg:mt-32 ">
+        <div className="w-full md:w-[400px] lg:w-[600px] ml-5 lg:ml-20">
           <div className="flex">
-            <MdOutlineKeyboardArrowLeft className="text-2xl" />
+            <MdOutlineKeyboardArrowLeft className="text-2xl hidden md:flex" />
             <button
               onClick={() => redir("/login")}
-              className="font-bold text-base text-black"
+              className="font-bold text-base text-black hidden md:flex"
             >
               Back to Login
             </button>
           </div>
           <div>
-            <h1 className="text-blue-600 font-bold text-3xl py-2">
-              Forgot Password?
+          <h1 className="text-blue-600 font-bold text-3xl py-2 text-center md:text-start">
+              Forgot Password
             </h1>
-            <p className="font-normal text-base text-black">
-              Don’t worry, happens to all of us. Enter your email below to{" "}
-              <br />
-              recover your password
-            </p>
+            <p className="font-normal w-80 text-base text-black text-center  md:text-start md:w-full lg:w-[420px]">
+            Please enter your email address or mobile number to search for your account.</p>
           </div>
           <div>
             {/* form */}
@@ -105,7 +101,7 @@ const ForgotPassword = () => {
                         type={toggle ? "text" : "email"}
                         placeholder="Enter Your Email Address"
                       />
-                      <div className="absolute top-2 right-3 text-blue-800">
+                      <div className="absolute top-4 right-3 text-blue-800">
                         {toggle ? (
                           <PiEyeLight
                             onClick={() => setToggle((prev) => !prev)}
