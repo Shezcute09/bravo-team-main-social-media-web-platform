@@ -8,6 +8,7 @@ import ForgotPassword from "./_auth/forms/ForgotPassword";
 import SetNewPassword from "./_auth/forms/SetNewPassword";
 import VerifyCode from "./_auth/forms/VerifyCode";
 import "./App.css";
+import Home from "./_root/pages/Home";
 import UserProfile from "./_root/pages/UserProfile";
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
       </Route>
 
       <Route path="/" element={<RootLayout />}>
+        <Route index element={<Navigate to="/home" replace />} />
+        <Route path="home" element={<Home />} />
+
         <Route path="user-profile" element={<UserProfile />} />
       </Route>
 

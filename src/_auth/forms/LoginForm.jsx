@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import google from "../../assets/images/google.svg";
 import appleicon from "../../assets/images/appleicon.svg";
 import amico1 from "../../assets/images/amico1.png";
@@ -157,6 +157,7 @@ const LoginForm = () => {
 
               <button
                 type="submit"
+                onClick={() => navigate("/home")}
                 className="w-full border-2 bg-blue-600 text-white py-2 rounded-md mb-2"
               >
                 Login
@@ -171,13 +172,11 @@ const LoginForm = () => {
 
               <p className="text-sm mt-4">
                 Do not have an account?{" "}
-                <a
-                  href="#"
-                  className="text-blue-600 underline font-semibold"
-                  onClick={() => navigate("/signup")}
-                >
-                  Sign Up
-                </a>
+                <Link to="/signup">
+                  <span className="text-blue-600 underline font-semibold">
+                    Sign Up
+                  </span>
+                </Link>
               </p>
             </form>
           </div>

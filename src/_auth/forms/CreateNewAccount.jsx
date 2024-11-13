@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 
 import { Image } from "cloudinary-react";
@@ -9,6 +10,7 @@ import dot from "../../assets/images/dot.svg";
 import user from "../../assets/images/user.svg";
 import eyeicon from "../../assets/images/eyeicon.svg"; // Add an eye-open icon
 import eyeiconclosed from "../../assets/images/eyeiconclosed.svg"; // Add an eye-closed icon for hiding password
+import { useNavigate } from "react-router-dom";
 
 const CreateNewAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,6 +24,7 @@ const CreateNewAccount = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -273,13 +276,19 @@ const CreateNewAccount = () => {
             ) : null}
           </div>
           <div className="mt-[70px]">
-            <button className="button-bg-blue " type="submit">
+            <button
+              className="button-bg-blue "
+              type="submit"
+              onClick={() => navigate("/login")}
+            >
               Next
             </button>
 
             <p className="text-center sora-text p mt-[5px]">
               Already have an account?{" "}
-              <span className="text-[#0540F2]"> Login</span>
+              <Link to="/login" className="text-[#0540F2]">
+                Login
+              </Link>
             </p>
           </div>
         </form>
