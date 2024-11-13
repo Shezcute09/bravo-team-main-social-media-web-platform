@@ -21,7 +21,7 @@ const SignupForm = () => {
 
   const handleCreateAccount = () => {
     // You can also handle form submissions here or navigate directly
-    navigate("/next-page"); // Change to the actual route for next page
+    navigate("/create-new-account"); // Change to the actual route for next page
   };
 
   return (
