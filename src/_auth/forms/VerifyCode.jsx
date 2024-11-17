@@ -25,7 +25,9 @@ const VerifyCode = () => {
           <h1 className="ml-2 md:text-4xl lg:text-5xl font-bold">BravoNet</h1>
         </div>
         <div className="text-center justify-center">
-          <h1 className="md:text-[26px] lg:text-3xl font-semibold mt-8">Welcome to BravoNet</h1>
+          <h1 className="md:text-[26px] lg:text-3xl font-semibold mt-8">
+            Welcome to BravoNet
+          </h1>
           <Image
             className="lg:ml-10"
             loading="lazy"
@@ -33,7 +35,8 @@ const VerifyCode = () => {
             publicId="https://res.cloudinary.com/dml48ptj8/image/upload/v1730573582/Welcome-amico_1_xd73nr.png"
           ></Image>
           <p className="md:text-lg lg:text-2xl md:w-[300px] lg:w-[396px] font-normal text-center text-white">
-            Connect, share, and discover in a  space created just for you.Let’s get started!
+            Connect, share, and discover in a space created just for you.Let’s
+            get started!
           </p>
           <img src={dots} alt="Dot" className="mt-8 mx-auto" />
         </div>
@@ -58,7 +61,7 @@ const VerifyCode = () => {
               An authentication code has been sent to your email.
             </p>
             <p className="text-center font-normal text-base text-black md:hidden">
-              An authentication code has been sent to <br/> your email.
+              An authentication code has been sent to <br /> your email.
             </p>
           </div>
           <div>
@@ -129,7 +132,7 @@ const VerifyCode = () => {
                   ) : null}
                   <button
                     className="w-full mt-10 border-2 border-blue-600  py-2 bg-blue-600 rounded-full text-base font-semibold text-white"
-                    onClick={() => redir("/login")}
+                    onClick={() => redir("/set-new-password")}
                     type="submit"
                   >
                     Verify
