@@ -1,25 +1,12 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom'; // Import Outlet for nested routes
+import { Outlet } from "react-router-dom";
 
 const RootLayout = () => {
   return (
     <div>
-      {/* <h1>Root Layout</h1> */}
-      <Outlet /> {/* This will render child routes like Signup or Login */}
+      {" "}
+      <Outlet />
     </div>
   );
 };
 
 export default RootLayout;
-
-
-// const RootLayout = () => {
-//   return (
-//     <div>
-//       <h1>RootLayout</h1>
-//       <Outlet />
-//     </div>
-//   );
-// };
-
-// export default RootLayout;
