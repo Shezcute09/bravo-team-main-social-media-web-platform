@@ -2,9 +2,7 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
-
 import { Image } from "cloudinary-react";
-
 import bravo from "../../assets/images/bravo.svg";
 import dot from "../../assets/images/dot.svg";
 import user from "../../assets/images/user.svg";
@@ -69,10 +67,11 @@ const CreateNewAccount = () => {
   });
 
   return (
-    <div className=" flex gap-[154px] ">
-      <div className="create-new-account1 w-[45vw] bg-[#0540F2] flex flex-col justify-center items-center">
+    <div className=" flex md:gap-[50px] lg:gap-[150px] ">
+      {/* blue part */}
+      <div className="hidden create-new-account1 w-[45vw] bg-[#0540F2] md:flex flex-col justify-center items-center">
         <div className="spinner mb-[55px]">
-          <img src={bravo} alt="" />
+          <img src={bravo} alt="logo" />
           <h3 className=" sora-text text-5xl font-bold leading-[60.48px] text-white">
             BravoNet
           </h3>
@@ -92,12 +91,13 @@ const CreateNewAccount = () => {
         <img src={dot} alt="" />
       </div>
 
-      <div className="create-new-account2 w-[30vw] pt-[130px] pb-[155px] ">
+{/* white part */}
+      <div className="create-new-account2 w-full px-4 md:w-[30vw] mt-10 md:mt-20 ">
         <form
           onSubmit={formik.handleSubmit}
           className="sora-tex flex flex-col gap-4"
         >
-          <h5 className="sora-text h5">Create your Account</h5>
+          <h5 className="sora-text h5 text-center md:text-start">Create your Account</h5>
           <div>
             <label htmlFor="fullName">First Name</label>
             <div className="relative flex items-center mt-1">

@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import google from "../../assets/images/google.svg";
-import appleicon from "../../assets/images/appleicon.svg";
+import phone from '../../assets/phoneB.svg'
 import amico1 from "../../assets/images/amico1.png";
 import bravo from "../../assets/images/bravo.svg";
 import dot from "../../assets/images/dot.svg";
@@ -40,7 +39,8 @@ const LoginForm = () => {
 
   return (
     <div className="flex justify-center items-center h-screen ">
-      <div className="bg-blue-600 h-screen w-[602px] text-white flex flex-col justify-center items-center">
+           {/* blue area */}
+      <div className=" hidden md:flex bg-blue-600 h-screen w-[602px] text-white flex-col justify-center items-center">
         <div className="flex flex-col items-center">
           <div className="flex items-center mb-4">
             <img src={bravo} alt="BravoNet" className="h-[100px] w-[100px]" />
@@ -55,41 +55,21 @@ const LoginForm = () => {
           <img src={dot} alt="Dot" className="mt-8 w-[59px] h-[10px]" />
         </div>
       </div>
-
-      <div className="flex justify-center w-[838px] h-screen items-center bg-white shadow-2xl">
-        <div className="bg-white rounded-md p-8 w-[500px] self-start">
-          <h2 className="text-2xl font-bold text-blue-700 text-start mb-6">
+            {/* white area */}
+      <div className="flex justify-center w-[838px] h-screen items-center bg-white shadow-2xl md:mt-20">
+        <div className="bg-white rounded-md p-8 w-full  md:w-[500px] self-start">
+         
+          <img className='mx-auto md:hidden' src={phone} alt="logo" />
+          <h2 className="text-center mt-4 text-2xl font-bold text-blue-700 md:text-start mb-6">
             Login
           </h2>
-
+        
           <div className="space-y-4">
-            <button
-              className="w-full bg-gray-100 border-2 border-blue-600 text-black py-2 rounded-md flex justify-center items-center"
-              onClick={() => navigate("/signup")}
-            >
-              <img src={google} alt="Google" className="w-5 h-5 mr-2" />
-              Login with Google
-            </button>
-
-            <button
-              className="w-full bg-gray-100 border-2 border-blue-600 text-black py-2 rounded-md flex justify-center items-center"
-              onClick={() => navigate("/signup")}
-            >
-              <img src={appleicon} alt="Apple" className="w-5 h-5 mr-2" />
-              Login with Apple
-            </button>
-
-            <div className="flex items-center my-4">
-              <hr className="flex-grow border-t border-gray-300" />
-              <span className="px-4 text-gray-500">or</span>
-              <hr className="flex-grow border-t border-gray-300" />
-            </div>
-
             <form onSubmit={formik.handleSubmit}>
               <div className="mb-4">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
+                  className="font-sora block text-sm font-medium text-gray-700"
                 >
                   Email, Phone Number, or Username
                 </label>
@@ -158,20 +138,20 @@ const LoginForm = () => {
               <button
                 type="submit"
                 onClick={() => navigate("/home")}
-                className="w-full border-2 bg-blue-600 text-white py-2 rounded-md mb-2"
+                className="w-full border-2 bg-blue-600 text-white py-2 rounded-full mb-2"
               >
                 Login
               </button>
               <button
                 type="button"
-                className="w-full border-2 border-blue-600 text-black py-2 rounded-md"
+                className="w-full border-2 border-blue-600 text-black py-2 rounded-full"
                 onClick={() => navigate("/forgot-password")}
               >
                 Forgot Password?
               </button>
 
-              <p className="text-sm mt-4">
-                Do not have an account?{" "}
+              <p className=" text-center text-sm mt-4">
+              Don’t have an account?{" "}
                 <Link to="/signup">
                   <span className="text-blue-600 underline font-semibold">
                     Sign Up
