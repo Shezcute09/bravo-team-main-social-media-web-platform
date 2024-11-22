@@ -31,7 +31,9 @@ const SetNewPassword = () => {
           <h1 className="ml-2 md:text-4xl lg:text-5xl font-bold">BravoNet</h1>
         </div>
         <div className="text-center justify-center">
-          <h1 className="md:text-[26px] lg:text-3xl font-semibold mt-8">Welcome to BravoNet</h1>
+          <h1 className="md:text-[26px] lg:text-3xl font-semibold mt-8">
+            Welcome to BravoNet
+          </h1>
           <Image
             className="lg:ml-10"
             loading="lazy"
@@ -39,14 +41,18 @@ const SetNewPassword = () => {
             publicId="https://res.cloudinary.com/dml48ptj8/image/upload/v1730573582/Welcome-amico_1_xd73nr.png"
           ></Image>
           <p className="md:text-lg lg:text-2xl md:w-[300px] lg:w-[396px] font-normal text-center text-white">
-            Connect, share, and discover in a  space created just for you.Let’s get started!
+            Connect, share, and discover in a space created just for you.Let’s
+            get started!
           </p>
           <img src={dots} alt="Dot" className="mt-8 mx-auto" />
         </div>
       </div>
       {/*white side */}
+ fatima
       <div className="justify-center items-center w-full md:w-[60%] px-6 md:mx-auto md:mt-20 lg:mt-32 ">
       <div className="w-full md:w-[400px] lg:w-[600px] px-5 md:ml-10 lg:ml-20">
+
+      
           <div className="flex">
             <MdOutlineKeyboardArrowLeft className="text-2xl hidden md:flex" />
             <button
@@ -60,9 +66,11 @@ const SetNewPassword = () => {
             <h1 className="text-blue-600 font-bold text-3xl py-2 text-center  md:text-start">
               Set a new password
             </h1>
+fatima
             <p className="font-normal  w-full text-base text-black text-center md:text-start lg:w-[420px]">
             Your previous password has been reseted. Please set a new password for your account.
-            </p>
+
+            
           </div>
           <div>
             {/* form */}
@@ -103,7 +111,7 @@ const SetNewPassword = () => {
                     <div className="relative flex flex-col gap-1 ">
                       <Field
                         id="password"
-                        className="text-sm font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]"
+                        className="text-sm input focus:outline-none focus:border-blue-600 font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]"
                         name="password"
                         type={toggle ? "text" : "password"}
                         placeholder="Enter New Password"
@@ -132,7 +140,7 @@ const SetNewPassword = () => {
                     <div className="relative flex flex-col gap-1 ">
                       <Field
                         id="Newpassword"
-                        className="text-sm font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]"
+                        className="text-sm input focus:outline-none focus:border-blue-600 font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]"
                         name="Newpassword"
                         type={Newtoggle ? "text" : "password"}
                         placeholder="Re-Enter New Password"
