@@ -45,8 +45,8 @@ const SetNewPassword = () => {
         </div>
       </div>
       {/*white side */}
-      <div className="justify-center items-center lg:w-[60%] px-6 md:mx-auto md:mt-20 lg:mt-32 ">
-      <div className="w-full md:w-[400px] lg:w-[600px] ml-5 lg:ml-20">
+      <div className="justify-center items-center w-full md:w-[60%] px-6 md:mx-auto md:mt-20 lg:mt-32 ">
+      <div className="w-full md:w-[400px] lg:w-[600px] px-5 md:ml-10 lg:ml-20">
           <div className="flex">
             <MdOutlineKeyboardArrowLeft className="text-2xl hidden md:flex" />
             <button
@@ -60,7 +60,7 @@ const SetNewPassword = () => {
             <h1 className="text-blue-600 font-bold text-3xl py-2 text-center  md:text-start">
               Set a new password
             </h1>
-            <p className="font-normal w-80 text-base text-black text-center md:text-start md:w-full lg:w-[420px]">
+            <p className="font-normal  w-full text-base text-black text-center md:text-start lg:w-[420px]">
             Your previous password has been reseted. Please set a new password for your account.
             </p>
           </div>

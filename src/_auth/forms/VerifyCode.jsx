@@ -42,8 +42,8 @@ const VerifyCode = () => {
         </div>
       </div>
       {/*white side */}
-      <div className="justify-center items-center mx-auto md:mt-20 lg:mt-32 ">
-        <div className="w-full md:w-[400px] lg:w-[600px]">
+      <div className="justify-center w-full md:w-[60%] items-center mx-auto md:mt-20 lg:mt-32 ">
+        <div className="w-full px-5 md:w-[400px] lg:w-[600px] md:ml-20">
           <div className="flex">
             <MdOutlineKeyboardArrowLeft className="text-2xl hidden md:flex" />
             <button
