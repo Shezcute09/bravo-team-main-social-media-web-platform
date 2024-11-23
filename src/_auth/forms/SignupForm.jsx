@@ -1,9 +1,9 @@
-import { Navigate, useNavigate } from "react-router-dom";
-import google from "../../assets/images/google.svg"; // Adjust the path
-import appleicon from "../../assets/images/appleicon.svg"; // Adjust the path
-import amico1 from "../../assets/images/amico1.png"; // Adjust the path
-import bravo from "../../assets/images/bravo.svg"; // Adjust the path
-import dot from "../../assets/images/dot.svg"; // Adjust the path
+import { Navigate, useNavigate } from 'react-router-dom';
+import google from '../../assets/images/google.svg'; // Adjust the path
+import appleicon from '../../assets/images/appleicon.svg'; // Adjust the path
+import amico1 from '../../assets/images/amico1.png'; // Adjust the path
+import bravo from '../../assets/images/bravo.svg'; // Adjust the path
+import dot from '../../assets/images/dot.svg'; // Adjust the path
 import phone from '../../assets/phoneB.svg'; //phone logo
 
 const SignupForm = () => {
@@ -12,17 +12,17 @@ const SignupForm = () => {
   // Handlers for navigating to different routes
   const handleGoogleSignup = () => {
     // You can also add actual Google signup functionality here
-    navigate("/next-page"); // Change to the actual route for next page
+    navigate('/next-page'); // Change to the actual route for next page
   };
 
   const handleAppleSignup = () => {
     // You can also add actual Apple signup functionality here
-    navigate("/next-page"); // Change to the actual route for next page
+    navigate('/next-page'); // Change to the actual route for next page
   };
 
   const handleCreateAccount = () => {
     // You can also handle form submissions here or navigate directly
-    navigate("/create-new-account"); // Change to the actual route for next page
+    navigate('/create-new-account'); // Change to the actual route for next page
   };
 
   return (
@@ -52,7 +52,7 @@ const SignupForm = () => {
       <div className="flex w-[838px] justify-center h-screen items-center bg-white shadow-2xl">
         {/* Sign-Up Container */}
         <div className="bg-white w-full rounded-md p-8  md:w-[500px] ">
-          <img className='mx-auto md:hidden' src={phone} alt="logo" />
+          <img className="mx-auto md:hidden" src={phone} alt="logo" />
           <h2 className="text-center text-2xl font-bold text-blue-700 md:text-start mb-6">
             Sign Up
           </h2>
@@ -92,21 +92,23 @@ const SignupForm = () => {
             </button>
 
             <p className="mt-4 text-sm text-gray-600">
-              By signing up, you agree to the {" "}
+              By signing up, you agree to the{' '}
               <Navigate to="" className="text-blue-600 underline">
-                Terms of Service {" "}
+                Terms of Service{' '}
               </Navigate>
               and
               <Navigate to="#" className="text-blue-600 underline">
-                Privacy Policy of the company.{" "}
+                Privacy Policy of the company.{' '}
               </Navigate>
             </p>
 
-            <p className="mt-6 text-center font-bold">Already have an account?</p>
+            <p className="mt-6 text-center font-bold">
+              Already have an account?
+            </p>
 
             {/* Login Button */}
             <button
-              onClick={() => navigate("/login")}
+              onClick={() => navigate('/login')}
               className="w-full border-2 border-blue-600 text-black py-2 rounded-full"
             >
               Login
