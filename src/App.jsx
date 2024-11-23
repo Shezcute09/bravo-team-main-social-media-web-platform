@@ -31,7 +31,7 @@ function App() {
         <Route index element={<Navigate to="/home" replace />} />
         <Route path="home" element={<Home />} />
 
-        <Route path="user-profile" element={<UserProfile />} />
+        <Route path="/user-profile" element={<UserProfile />} />
       </Route>
 
       {/* 404 Not Found Route */}

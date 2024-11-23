@@ -1,9 +1,8 @@
-import React from "react";
 import prof from "../../assets/images/profile.png";
 import { IoLocationOutline } from "react-icons/io5";
 import { HiOutlineGif } from "react-icons/hi2";
 import gallery from "../../assets/gallery.svg";
-import draft from "../../assets/draft.svg"
+import draft from "../../assets/draft.svg";
 import { CiFaceSmile } from "react-icons/ci";
 import { IoIosMore } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -26,7 +25,7 @@ const Home = () => {
             Trending
           </button>
         </div>
-  <hr  className="text-black mt-8"/>
+        <hr className="text-black mt-8" />
         <div>
           {/* what to post */}
           <div className="flex flex-row gap-4 mt-8">
@@ -45,36 +44,49 @@ const Home = () => {
           {/* MEDiA */}
           <div className="flex gap-96 mt-6">
             <div className="flex flex-row gap-4">
-             <img  className="w-9 h-10"src={gallery} alt="" />
+              <img className="w-9 h-10" src={gallery} alt="" />
               <CiFaceSmile className="w-10 h-10" />
-              <HiOutlineGif className="w-10 h-10"/>
+              <HiOutlineGif className="w-10 h-10" />
               <IoLocationOutline className="w-10 h-10" />
             </div>
-       {/* intgrate post and draft button*/}
+            {/* intgrate post and draft button*/}
             <div className="flex flex-row  gap-4">
-            <button className="flex gap-2 w-20 border-2 border-black py-2 rounded-md text-base font-semibold"><img src={draft} alt="" /><span>Draft</span></button>
-            <button className="w-20 border-2 border-blue-600  py-2 bg-blue-600 rounded-md text-base font-semibold text-white">Post</button>
+              <button className="flex gap-2 w-20 border-2 border-black py-2 rounded-md text-base font-semibold">
+                <img src={draft} alt="" />
+                <span>Draft</span>
+              </button>
+              <button className="w-20 border-2 border-blue-600  py-2 bg-blue-600 rounded-md text-base font-semibold text-white">
+                Post
+              </button>
             </div>
           </div>
-          <hr  className="text-black mt-8"/>
+          <hr className="text-black mt-8" />
         </div>
 
         {/* Newsfeed */}
         <section className="flex flex-col gap-4 mt-10">
           <div className="flex gap-[27rem]">
-             {/* Profile */}
-               <div>    
-                <Link to ={`/profile/`} className='flex gap-3 items-center'>
-                <img src= {prof} alt="profile" className='h-14 w-14 rounded-full' />
+            {/* Profile */}
+            <div>
+              <Link to="/user-profile" className="flex gap-3 items-center">
+                <img
+                  src={prof}
+                  alt="profile"
+                  className="h-14 w-14 rounded-full"
+                />
                 {/* fetch names from api {user.name and @user.username} */}
-                <div className='flex flex-col'>
-                 <p className="font-semibold font-sora text-xl">Salami Taoreed Adebayo</p>
-                <p className='text-violet-200'>@iamtsalami</p>
-                <p>2 hours ago</p>
+                <div className="flex flex-col">
+                  <p className="font-semibold font-sora text-xl">
+                    Salami Taoreed Adebayo
+                  </p>
+                  <p className="text-violet-200">@iamtsalami</p>
+                  <p>2 hours ago</p>
                 </div>
-                </Link>
-               </div>
-               <div><IoIosMore /></div>
+              </Link>
+            </div>
+            <div>
+              <IoIosMore />
+            </div>
           </div>
 
           <div>
@@ -96,7 +108,7 @@ const Home = () => {
 
           <hr />
           {/* integrate comment to post */}
-           <div className="flex flex-row gap-4 mt-8">
+          <div className="flex flex-row gap-4 mt-8">
             <img src={prof} alt="profile" className="h-14 w-14 rounded-full" />
             <div className="w-full relative">
               <form>
@@ -108,8 +120,8 @@ const Home = () => {
                 />
               </form>
               <div className="absolute top-3 right-1 flex gap-2">
-                 <img  className="w-8 h-8"src={gallery} alt="" />
-                  <CiFaceSmile className="w-8 h-8"/>
+                <img className="w-8 h-8" src={gallery} alt="" />
+                <CiFaceSmile className="w-8 h-8" />
               </div>
             </div>
           </div>
