@@ -1,14 +1,15 @@
-import { useState } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { Link, useNavigate } from "react-router-dom";
-import phone from '../../assets/phoneB.svg'
-import amico1 from "../../assets/images/amico1.png";
-import bravo from "../../assets/images/bravo.svg";
-import dot from "../../assets/images/dot.svg";
-import user from "../../assets/images/user.svg";
-import eyeicon from "../../assets/images/eyeicon.svg"; // Add an eye-open icon
-import eyeiconclosed from "../../assets/images/eyeiconclosed.svg"; // Add an eye-closed icon for hiding password
+import { useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { Link, useNavigate } from 'react-router-dom';
+import phone from '../../assets/phoneB.svg';
+import amico1 from '../../assets/images/amico1.png';
+import bravo from '../../assets/images/bravo.svg';
+import dot from '../../assets/images/dot.svg';
+import user from '../../assets/images/user.svg';
+import eyeicon from '../../assets/images/eyeicon.svg'; // Add an eye-open icon
+import eyeiconclosed from '../../assets/images/eyeiconclosed.svg'; // Add an eye-closed icon for hiding password
+import axios from 'axios';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -16,20 +17,42 @@ const LoginForm = () => {
   // State to toggle password visibility
   const [showPassword, setShowPassword] = useState(false);
 
+  // Function to handle form submission
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
+    try {
+      // Send data to the remote server
+      const response = await axios.post(
+        'https://bravonet.onrender.com/api/auth/login',
+        values
+      );
+      alert('Form submitted successfully!');
+      console.log('Server response:', response.data);
+
+      // Reset the form
+      resetForm();
+
+      // Redirect to home
+      navigate('/home');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to submit form. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
     validationSchema: Yup.object({
-      email: Yup.string().email("Invalid email address").required("Required"),
+      email: Yup.string().email('Invalid email address').required('Required'),
       password: Yup.string()
-        .min(6, "Password must be at least 6 characters")
-        .required("Required"),
+        .min(8, 'Password must be at least 8 characters')
+        .required('Required'),
     }),
-    onSubmit: (values) => {
-      console.log("Form data:", values);
-    },
+    onSubmit,
   });
 
   // Toggle function for the password field
@@ -39,7 +62,7 @@ const LoginForm = () => {
 
   return (
     <div className="flex justify-center items-center h-screen ">
-           {/* blue area */}
+      {/* blue area */}
       <div className=" hidden md:flex bg-blue-600 h-screen w-[602px] text-white flex-col justify-center items-center">
         <div className="flex flex-col items-center">
           <div className="flex items-center mb-4">
@@ -55,17 +78,16 @@ const LoginForm = () => {
           <img src={dot} alt="Dot" className="mt-8 w-[59px] h-[10px]" />
         </div>
       </div>
-            {/* white area */}
+      {/* white area */}
       <div className="flex justify-center w-[838px] h-screen items-center bg-white shadow-2xl md:mt-20">
         <div className="bg-white rounded-md p-8 w-full  md:w-[500px] self-start">
-         
-          <img className='mx-auto md:hidden' src={phone} alt="logo" />
+          <img className="mx-auto md:hidden" src={phone} alt="logo" />
           <h2 className="text-center mt-4 text-2xl font-bold text-blue-700 md:text-start mb-6">
             Login
           </h2>
-        
+
           <div className="space-y-4">
-            <form onSubmit={formik.handleSubmit}>
+            <form onSubmit={formik.handleSubmit} autoComplete="off">
               <div className="mb-4">
                 <label
                   htmlFor="email"
@@ -83,6 +105,7 @@ const LoginForm = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
+                    autoComplete="email"
                   />
                   <span className="absolute right-4">
                     <img
@@ -110,12 +133,13 @@ const LoginForm = () => {
                   <input
                     id="password"
                     name="password"
-                    type={showPassword ? "text" : "password"} // Toggle between text and password
+                    type={showPassword ? 'text' : 'password'} // Toggle between text and password
                     placeholder="Enter your password"
                     className="w-full border border-blue-600 text-gray-700 px-4 py-2 rounded-md focus:outline-none focus:border-blue-600"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.password}
+                    autoComplete="current-password"
                   />
                   <span
                     className="absolute right-4 cursor-pointer"
@@ -137,7 +161,6 @@ const LoginForm = () => {
 
               <button
                 type="submit"
-                onClick={() => navigate("/home")}
                 className="w-full border-2 bg-blue-600 text-white py-2 rounded-full mb-2"
               >
                 Login
@@ -145,13 +168,13 @@ const LoginForm = () => {
               <button
                 type="button"
                 className="w-full border-2 border-blue-600 text-black py-2 rounded-full"
-                onClick={() => navigate("/forgot-password")}
+                onClick={() => navigate('/forgot-password')}
               >
                 Forgot Password?
               </button>
 
               <p className=" text-center text-sm mt-4">
-              Don’t have an account?{" "}
+                Don’t have an account?{' '}
                 <Link to="/signup">
                   <span className="text-blue-600 underline font-semibold">
                     Sign Up
