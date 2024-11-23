@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignupSchema = Yup.object().shape({
   password: Yup.string()
-    .required("please enter your New passoword")
+    .required("please enter your New password")
     .matches(/^(?=.*[a-z])/, " Must Contain One Lowercase Character")
     .matches(/^(?=.*[A-Z])/, "  Must Contain One Uppercase Character")
     .matches(/^(?=.*[0-9])/, "  Must Contain One Number Character")
@@ -66,6 +66,10 @@ const SetNewPassword = () => {
             </h1>
 
             <p className="font-normal  w-full text-base text-black text-center md:text-start lg:w-[420px]">
+              Your previous password has been reseted. Please set a new password
+              for your account.
+            </p>
+            <p>
               Your previous password has been reseted. Please set a new password
               for your account.
             </p>
