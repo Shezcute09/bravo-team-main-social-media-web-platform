@@ -7,12 +7,17 @@ import { PiEyeLight, PiEyeSlashThin } from "react-icons/pi";
 import { Image } from "cloudinary-react";
 import logo from "../../assets/logo.svg";
 import dots from "../../assets/dot.svg";
+import axios from "axios";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
+  code: Yup.string()
+    .required("OTP code is required")
+    .matches(/^\d{6}$/, "OTP must be a 6-digit number"),
 });
 
 const VerifyCode = () => {
+  const email = sessionStorage.getItem("email");
   let redir = useNavigate();
   let [toggle, setToggle] = useState(false);
 
@@ -71,27 +76,38 @@ const VerifyCode = () => {
                 code: "",
               }}
               validationSchema={SignupSchema}
-              onSubmit={(values, { resetForm }) => {
-                resetForm();
+              onSubmit={async (values, { resetForm }) => {
+                try {
+                  // Make POST request to forgot-password endpoint
+                  const response = await axios.post(
+                    "https://bravonet.onrender.com/api/auth/verify-otp",
+                    {
+                      email: email, // Send email value from form
+                      code: values.code,
+                    }
+                  );
+
+                  // Handle success response
+                  console.log("Response:", response.data);
+                  alert("otp verified successfully!");
+
+                  // Navigate to verification page
+                  redir("/set-new-password");
+                  resetForm();
+                } catch (error) {
+                  // Handle error response
+
+                  console.error(
+                    "Error:",
+                    error.response?.data?.message || error.message
+                  );
+                  alert(
+                    error.response?.data?.message ||
+                      "Invalid OTP. Please try again."
+                  );
+                }
+
                 console.log(values);
-
-                // axios.get('http://localhost:8000/Users/'+values.email)
-                // .then(reps=> {
-                //   console.log(reps.data);
-                //   if(reps.data.password === values.password) {
-                //          setUser({isLoggedIn:true,data: {email: values.email,role: reps.data.role}})
-                //         notify()
-                //         setTimeout(() => {
-                //           redir('/')
-
-                //         }, 3000);
-                //   }else{
-                //     notify2()
-                //  }
-                // })
-                // .catch(err=> {
-                //  console.log(err)
-                // })
               }}
             >
               {({ errors, touched }) => (
@@ -103,9 +119,9 @@ const VerifyCode = () => {
                     <div className="relative flex flex-col gap-1 ">
                       <Field
                         id="code"
-                        className="text-sm font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]"
+                        className="input focus:outline-none focus:border-blue-600"
                         name="code"
-                        type={toggle ? "text" : "code"}
+                        type={toggle ? "text" : "tel"}
                         placeholder="Enter code to verify"
                       />
                       <div className="absolute top-4 right-3 text-blue-800">
@@ -122,17 +138,21 @@ const VerifyCode = () => {
                     </div>
                     <p className="font-normal text-base">
                       Didn’t receive a code?
-                      <button className="text-red-500 font-semibold">
+                      <button
+                        className="text-red-500 font-semibold"
+                        type="button"
+                      >
                         Resend
                       </button>
                     </p>
                   </fieldset>
                   {errors.code && touched.code ? (
-                    <div className="">{errors.code}</div>
+                    <div className="text-red-600 text-sm mt-1">
+                      {errors.code}
+                    </div>
                   ) : null}
                   <button
                     className="w-full mt-10 border-2 border-blue-600  py-2 bg-blue-600 rounded-full text-base font-semibold text-white"
-                    onClick={() => redir("/set-new-password")}
                     type="submit"
                   >
                     Verify
