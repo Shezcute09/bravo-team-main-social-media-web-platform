@@ -144,7 +144,7 @@ const LoginForm = () => {
                     onClick={togglePasswordVisibility}
                   >
                     <img
-                      src={showPassword ? eyeiconclosed : eyeicon} // Change icon based on password visibility
+                      src={showPassword ? eyeicon : eyeiconclosed} // Change icon based on password visibility
                       alt="Toggle password visibility"
                       className="h-5 w-5 text-blue-600"
                     />

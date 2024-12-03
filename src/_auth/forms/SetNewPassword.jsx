@@ -84,24 +84,6 @@ const SetNewPassword = () => {
               onSubmit={(values, { resetForm }) => {
                 resetForm();
                 console.log(values);
-
-                // axios.get('http://localhost:8000/Users/'+values.email)
-                // .then(reps=> {
-                //   console.log(reps.data);
-                //   if(reps.data.password === values.password) {
-                //          setUser({isLoggedIn:true,data: {email: values.email,role: reps.data.role}})
-                //         notify()
-                //         setTimeout(() => {
-                //           redir('/')
-
-                //         }, 3000);
-                //   }else{
-                //     notify2()
-                //  }
-                // })
-                // .catch(err=> {
-                //  console.log(err)
-                // })
               }}
             >
               {({ errors, touched }) => (
@@ -113,10 +95,6 @@ const SetNewPassword = () => {
                     <div className="relative flex flex-col gap-1 ">
                       <Field
                         id="password"
-                        git
-                        pull
-                        origin
-                        ma
                         className="text-sm input focus:outline-none focus:border-blue-600 font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]"
                         name="password"
                         type={toggle ? "text" : "password"}

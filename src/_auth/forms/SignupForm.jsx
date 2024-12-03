@@ -1,10 +1,10 @@
-import { Navigate, useNavigate } from 'react-router-dom';
-import google from '../../assets/images/google.svg'; // Adjust the path
-import appleicon from '../../assets/images/appleicon.svg'; // Adjust the path
-import amico1 from '../../assets/images/amico1.png'; // Adjust the path
-import bravo from '../../assets/images/bravo.svg'; // Adjust the path
-import dot from '../../assets/images/dot.svg'; // Adjust the path
-import phone from '../../assets/phoneB.svg'; //phone logo
+import { Navigate, useNavigate } from "react-router-dom";
+import google from "../../assets/images/google.svg"; // Adjust the path
+import appleicon from "../../assets/images/appleicon.svg"; // Adjust the path
+import amico1 from "../../assets/images/amico1.png"; // Adjust the path
+import bravo from "../../assets/images/bravo.svg"; // Adjust the path
+import dot from "../../assets/images/dot.svg"; // Adjust the path
+import phone from "../../assets/phoneB.svg"; //phone logo
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -12,17 +12,17 @@ const SignupForm = () => {
   // Handlers for navigating to different routes
   const handleGoogleSignup = () => {
     // You can also add actual Google signup functionality here
-    navigate('/next-page'); // Change to the actual route for next page
+    navigate("/next-page"); // Change to the actual route for next page
   };
 
   const handleAppleSignup = () => {
     // You can also add actual Apple signup functionality here
-    navigate('/next-page'); // Change to the actual route for next page
+    navigate("/next-page"); // Change to the actual route for next page
   };
 
   const handleCreateAccount = () => {
     // You can also handle form submissions here or navigate directly
-    navigate('/create-new-account'); // Change to the actual route for next page
+    navigate("/create-new-account"); // Change to the actual route for next page
   };
 
   return (
@@ -92,13 +92,13 @@ const SignupForm = () => {
             </button>
 
             <p className="mt-4 text-sm text-gray-600">
-              By signing up, you agree to the{' '}
+              By signing up, you agree to the{" "}
               <Navigate to="" className="text-blue-600 underline">
-                Terms of Service{' '}
+                Terms of Service{" "}
               </Navigate>
               and
               <Navigate to="#" className="text-blue-600 underline">
-                Privacy Policy of the company.{' '}
+                Privacy Policy of the company.{" "}
               </Navigate>
             </p>
 
@@ -108,7 +108,7 @@ const SignupForm = () => {
 
             {/* Login Button */}
             <button
-              onClick={() => navigate('/login')}
+              onClick={() => navigate("/login")}
               className="w-full border-2 border-blue-600 text-black py-2 rounded-full"
             >
               Login
@@ -121,3 +121,4 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
+// https://bravonet.onrender.com/api/auth/verify-otp
