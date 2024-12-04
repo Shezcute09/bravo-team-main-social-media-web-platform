@@ -15,7 +15,6 @@ const SignupSchema = Yup.object().shape({
 });
 
 const ForgotPassword = () => {
-  const email = sessionStorage.getItem("email");
   const redir = useNavigate(); // Hook for navigation
   const [toggle, setToggle] = useState(false); // State to toggle password visibility
 
@@ -95,8 +94,6 @@ const ForgotPassword = () => {
                   alert("An error occurred. Please try again.");
                 }
 
-                // Reset form fields
-                sessionStorage.setItem("email", email);
                 resetForm();
               }}
             >
