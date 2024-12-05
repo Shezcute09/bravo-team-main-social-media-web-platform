@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
-import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
-import eyeicon from "../../assets/images/eyeicon.svg"; // Add an eye-open icon
-import eyeiconclosed from "../../assets/images/eyeiconclosed.svg";
-import { Image } from "cloudinary-react";
-import logo from "../../assets/logo.svg";
-import dots from "../../assets/dot.svg";
-import axios from "axios";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
+import eyeicon from '../../assets/images/eyeicon.svg'; // Add an eye-open icon
+import eyeiconclosed from '../../assets/images/eyeiconclosed.svg';
+import { Image } from 'cloudinary-react';
+import logo from '../../assets/logo.svg';
+import dots from '../../assets/dot.svg';
+import axios from 'axios';
 
 const VerifyCode = () => {
   let redir = useNavigate();
@@ -19,34 +19,34 @@ const VerifyCode = () => {
 
   const SignupSchema = Yup.object().shape({
     code: Yup.string()
-      .required("OTP code is required")
-      .matches(/^\d{6}$/, "OTP must be a 6-digit number"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
+      .required('OTP code is required')
+      .matches(/^\d{6}$/, 'OTP must be a 6-digit number'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
   });
 
   const handleSubmit = async (values) => {
     try {
       if (!values.code || !values.email) {
-        alert("Please provide both code and email.");
+        alert('Please provide both code and email.');
         return;
       }
 
       const response = await axios.post(
-        "https://bravonet.onrender.com/api/auth/verify-otp",
+        'https://bravonet.onrender.com/api/auth/verify-otp',
         {
-          code: values.code,
+          otp: values.code,
           email: values.email,
         }
       );
 
-      console.log("Response:", response.data);
-      alert("OTP verified successfully!");
+      console.log('Response:', response.data);
+      alert('OTP verified successfully!');
 
-      redir("/set-new-password");
+      redir('/set-new-password');
       // resetForm();
     } catch (error) {
-      console.error("Error:", error.response?.data?.message || error.message);
-      alert(error.response?.data?.message || "Invalid OTP. Please try again.");
+      console.error('Error:', error.response?.data?.message || error.message);
+      alert(error.response?.data?.message || 'Invalid OTP. Please try again.');
     }
   };
 
@@ -81,7 +81,7 @@ const VerifyCode = () => {
           <div className="flex">
             <MdOutlineKeyboardArrowLeft className="text-2xl hidden md:flex" />
             <button
-              onClick={() => redir("/login")}
+              onClick={() => redir('/login')}
               className="font-bold text-base text-black hidden md:flex"
             >
               Back to Login
@@ -102,8 +102,8 @@ const VerifyCode = () => {
             {/* form */}
             <Formik
               initialValues={{
-                code: "",
-                email: "",
+                code: '',
+                email: '',
               }}
               validationSchema={SignupSchema}
               onSubmit={handleSubmit}
@@ -118,7 +118,7 @@ const VerifyCode = () => {
                       <Field
                         id="code"
                         name="code"
-                        type={toggle ? "text" : "password"}
+                        type={toggle ? 'text' : 'password'}
                         className="input focus:outline-none focus:border-blue-600"
                         placeholder="Enter code to verify"
                       />

@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { Link, useNavigate } from "react-router-dom";
-import phone from "../../assets/phoneB.svg";
-import amico1 from "../../assets/images/amico1.png";
-import bravo from "../../assets/images/bravo.svg";
-import dot from "../../assets/images/dot.svg";
-import user from "../../assets/images/user.svg";
-import eyeicon from "../../assets/images/eyeicon.svg"; // Add an eye-open icon
-import eyeiconclosed from "../../assets/images/eyeiconclosed.svg"; // Add an eye-closed icon for hiding password
-import axios from "axios";
+import { useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { Link, useNavigate } from 'react-router-dom';
+import phone from '../../assets/phoneB.svg';
+import amico1 from '../../assets/images/amico1.png';
+import bravo from '../../assets/images/bravo.svg';
+import dot from '../../assets/images/dot.svg';
+import user from '../../assets/images/user.svg';
+import eyeicon from '../../assets/images/eyeicon.svg'; // Add an eye-open icon
+import eyeiconclosed from '../../assets/images/eyeiconclosed.svg'; // Add an eye-closed icon for hiding password
+import axios from 'axios';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -22,33 +22,37 @@ const LoginForm = () => {
     try {
       // Send data to the remote server
       const response = await axios.post(
-        "https://bravonet.onrender.com/api/auth/login",
+        'https://bravonet.onrender.com/api/auth/login',
         values
       );
-      alert("Form submitted successfully!");
-      console.log("Server response:", response.data);
+      alert('Form submitted successfully!');
+      console.log('Server response:', response.data);
+
+      // Save the jwtToken in the local storage
+      localStorage.setItem('jwtToken', response.data.token);
+      console.log(localStorage);
 
       // Reset the form
       resetForm();
 
       // Redirect to home
-      navigate("/home");
+      navigate('/home');
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("Failed to submit form. Please try again.");
+      console.error('Error submitting form:', error);
+      alert('Failed to submit form. Please try again.');
     }
   };
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
     validationSchema: Yup.object({
-      email: Yup.string().email("Invalid email address").required("Required"),
+      email: Yup.string().email('Invalid email address').required('Required'),
       password: Yup.string()
-        .min(8, "Password must be at least 8 characters")
-        .required("Required"),
+        .min(8, 'Password must be at least 8 characters')
+        .required('Required'),
     }),
     onSubmit,
   });
@@ -131,7 +135,7 @@ const LoginForm = () => {
                   <input
                     id="password"
                     name="password"
-                    type={showPassword ? "text" : "password"} // Toggle between text and password
+                    type={showPassword ? 'text' : 'password'} // Toggle between text and password
                     placeholder="Enter your password"
                     className="w-full border border-blue-600 text-gray-700 px-4 py-2 rounded-md focus:outline-none focus:border-blue-600"
                     onChange={formik.handleChange}
@@ -166,13 +170,13 @@ const LoginForm = () => {
               <button
                 type="button"
                 className="w-full border-2 border-blue-600 text-black py-2 rounded-full"
-                onClick={() => navigate("/forgot-password")}
+                onClick={() => navigate('/forgot-password')}
               >
                 Forgot Password?
               </button>
 
               <p className=" text-center text-sm mt-4">
-                Don’t have an account?{" "}
+                Don’t have an account?{' '}
                 <Link to="/signup">
                   <span className="text-blue-600 underline font-semibold">
                     Sign Up
