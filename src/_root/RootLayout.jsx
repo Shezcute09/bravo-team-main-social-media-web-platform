@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Leftside from "../components/leftsidebar/Leftside";
 import Rightside from "../components/rightsidebar/Rightside";
+import People from "../components/people/People";
 
 const RootLayout = () => {
   return (
@@ -11,7 +12,8 @@ const RootLayout = () => {
         <Outlet/>
       </section>
 
-      <Rightside/>
+      {/* <Rightside/> */}
+      <People/>
 
       
     </div>

@@ -25,6 +25,9 @@ const LoginForm = () => {
         'https://bravonet.onrender.com/api/auth/login',
         values
       );
+
+   
+
       alert('Form submitted successfully!');
       console.log('Server response:', response.data);
 
@@ -63,7 +66,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen ">
+    <div className="flex justify-center items-center h-screen font-sora">
       {/* blue area */}
       <div className=" hidden md:flex bg-blue-600 h-screen w-[602px] text-white flex-col justify-center items-center">
         <div className="flex flex-col items-center">
@@ -71,9 +74,9 @@ const LoginForm = () => {
             <img src={bravo} alt="BravoNet" className="h-[100px] w-[100px]" />
             <span className="ml-2 text-3xl font-bold">BravoNet</span>
           </div>
-          <h2 className="text-xl font-bold">Welcome to BravoNet</h2>
+          <h2 className="text-xl font-sora font-bold">Welcome to BravoNet</h2>
           <img src={amico1} alt="Illustration" />
-          <p className="mt-4 text-white text-center">
+          <p className="mt-4 text-white text-center font-sora">
             Connect, share, and discover in a space created just for you.
             Let&#39;s get started!
           </p>
