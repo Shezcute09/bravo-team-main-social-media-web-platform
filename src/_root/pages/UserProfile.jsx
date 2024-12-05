@@ -4,7 +4,9 @@ import { IoClose } from "react-icons/io5";
 import { Image } from "cloudinary-react";
 import camera from "../../assets/camera.svg";
 import close from "../../assets/close.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
+import img from "../../assets/images/image.png"
+import { useState } from "react";
 
 const SignupSchema = Yup.object().shape({
   profileName: Yup.string()
@@ -13,6 +15,10 @@ const SignupSchema = Yup.object().shape({
     .required("Required"),
 });
 const navigate = useNavigate;
+//  const [profileName,setProfileName]=useState("");
+//  const[userName,setUserName]=useState("");
+//  const[bio,setBio]=useState("");
+//  const[location,setLocation]=useState("");
 
 const Userprofile = () => {
   return (
@@ -53,15 +59,15 @@ const Userprofile = () => {
         </div>
       </div>
       {/* integrate display picture  remove the red border*/}
-      <div className="flex flex-row  left-10 md:left-24 lg:left-32 absolute top-44 h-[100px] min-w-[80%] border-2 border-red-700">
-        <div className="flex-1">
-          <img src="" alt="DP" />
+      <div className="flex gap-72 px-14 flex-row right absolute top-44 h-[100px] min-w-[50%] ">
+        <div className="">
+          <img src={img} alt="DP" />
         </div>
-        <div className="mt-6 font-sora text-base font-semibold ">
-          <button className="border-2 mx-3 border-blue-600 rounded-md w-[120px] h-10 file:text-white  bg-blue-600">
+        <div className="mt-10 font-sora text-base font-semibold ">
+          <button className="border-2 mx-3 border-blue-600 rounded-md w-[150px] h-10 text-white  bg-blue-600">
             Change Profile
           </button>
-          <button className="border-2 border-[#F1F3F4] rounded-md w-[120px] h-10 text-red-600 bg-[#F1F3F4">
+          <button className="border-2 border-[#F1F3F4] bg-[#F1F3F4] rounded-md w-[150px] h-10 text-red-600 bg-[#F1F3F4">
             Change Profile
           </button>
         </div>
@@ -85,11 +91,11 @@ const Userprofile = () => {
             // .then(reps=> {
             //   console.log(reps.data);
             //   if(reps.data.password === values.password) {
-            //          setUser({isLoggedIn:true,data: {email: values.email,fullname: values.fullName,role: reps.data.role}})
+            //          setUser({isLoggedIn:true,data: {email: values.email,fullname: values.fullName}})
 
             //         notify()
             //         setTimeout(() => {
-            //           redir('/contact')
+            //           redir('/')
 
             //         }, 3000);
             //   }else{
