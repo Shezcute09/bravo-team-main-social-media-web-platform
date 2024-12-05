@@ -40,15 +40,15 @@ const Userprofile = () => {
       const formattedData = {
         bio: values.bio,
         location: values.location,
-        dateOfBirth: '1995-05-14',
-        privacy: 'public',
+        // dateOfBirth: '1995-05-14',
+        // privacy: 'public',
         username: values.username,
         name: values.name,
       };
 
       // Send data to the remote server
-      const response = await axios.patch(
-        'https://bravonet.onrender.com/api/profile/update',
+      const response = await axios.put(
+        'https://bravonet.onrender.com/api/profile/update-profile',
         formattedData,
         {
           headers: {
