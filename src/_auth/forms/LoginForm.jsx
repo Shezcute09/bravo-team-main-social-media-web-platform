@@ -10,6 +10,7 @@ import user from '../../assets/images/user.svg';
 import eyeicon from '../../assets/images/eyeicon.svg'; // Add an eye-open icon
 import eyeiconclosed from '../../assets/images/eyeiconclosed.svg'; // Add an eye-closed icon for hiding password
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -26,9 +27,18 @@ const LoginForm = () => {
         values
       );
 
-   
+      if (response.status !== 200) {
+        throw new Error('Failed to submit form');
+      }
 
-      alert('Form submitted successfully!');
+      Swal.fire({
+        title: 'Success!',
+        text: `Your data has been submitted successfully: ${values.email}`,
+        icon: 'success',
+        confirmButtonText: false,
+        timer: 1500,
+      });
+
       console.log('Server response:', response.data);
 
       // Save the jwtToken in the local storage

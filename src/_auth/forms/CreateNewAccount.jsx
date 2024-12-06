@@ -1,23 +1,23 @@
-import { useFormik } from "formik";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import * as Yup from "yup";
-import { Image } from "cloudinary-react";
-import bravo from "../../assets/images/bravo.svg";
-import dot from "../../assets/images/dot.svg";
-import user from "../../assets/images/user.svg";
-import eyeicon from "../../assets/images/eyeicon.svg"; // Add an eye-open icon
-import eyeiconclosed from "../../assets/images/eyeiconclosed.svg"; // Add an eye-closed icon for hiding password
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useFormik } from 'formik';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
+import { Image } from 'cloudinary-react';
+import bravo from '../../assets/images/bravo.svg';
+import dot from '../../assets/images/dot.svg';
+import user from '../../assets/images/user.svg';
+import eyeicon from '../../assets/images/eyeicon.svg'; // Add an eye-open icon
+import eyeiconclosed from '../../assets/images/eyeiconclosed.svg'; // Add an eye-closed icon for hiding password
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const CreateNewAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState({
-    title: "",
-    message: "",
+    title: '',
+    message: '',
     isError: false,
   });
 
@@ -37,7 +37,7 @@ const CreateNewAccount = () => {
         <div className="bg-white w-[90%] max-w-md rounded-lg shadow-lg p-6">
           <h2
             className={`text-xl font-bold mb-4 ${
-              isError ? "text-red-600" : "text-green-600"
+              isError ? 'text-red-600' : 'text-green-600'
             }`}
           >
             {title}
@@ -57,18 +57,18 @@ const CreateNewAccount = () => {
   };
 
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
 
   // Function to handle form submission
@@ -86,41 +86,41 @@ const CreateNewAccount = () => {
         confirmPassword: values.confirmPassword,
       };
 
-      console.log("Submitting data:", formattedData);
+      console.log('Submitting data:', formattedData);
 
       const response = await axios.post(
-        "https://bravonet.onrender.com/api/auth/register",
+        'https://bravonet.onrender.com/api/auth/register',
         formattedData
       );
       setPopupContent({
-        title: "Registration Successful!",
-        message: "Your account has been created successfully. Welcome!",
+        title: 'Registration Successful!',
+        message: 'Your account has been created successfully. Welcome!',
         isError: false,
       });
       setShowPopup(true);
       // alert('Form submitted successfully!');
-      console.log("Server response:", response.data);
+      console.log('Server response:', response.data);
 
       // Reset the form
       resetForm();
 
       // Redirect to home
-      navigate("/login");
+      navigate('/login');
     } catch (error) {
       if (error.response && error.response.status === 400) {
         // Conflict error, user already exists
         setPopupContent({
-          title: "User Already Exists OR Passwords Do Not Match",
+          title: 'User Already Exists OR Passwords Do Not Match',
           message:
-            "A user with this email already exists. Please log in instead. OR Passwords do not match.",
+            'A user with this email already exists. Please log in instead. OR Passwords do not match.',
           isError: true,
         });
-        console.error("Error submitting form:", error);
+        console.error('Error submitting form:', error);
         // alert('Failed to submit form. Please try again.');
       } else {
         setPopupContent({
-          title: "Registration Failed",
-          message: "An unexpected error occurred. Please try again later.",
+          title: 'Registration Failed',
+          message: 'An unexpected error occurred. Please try again later.',
           isError: true,
         });
       }
@@ -130,37 +130,37 @@ const CreateNewAccount = () => {
 
   const formik = useFormik({
     initialValues: {
-      fullName: "",
-      email: "",
-      month: "",
-      day: "",
-      year: "",
-      password: "",
-      confirmPassword: "",
+      fullName: '',
+      email: '',
+      month: '',
+      day: '',
+      year: '',
+      password: '',
+      confirmPassword: '',
     },
     validationSchema: Yup.object({
       fullName: Yup.string()
-        .max(100, "Must be 15 characters or less")
-        .required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
+        .max(100, 'Must be 15 characters or less')
+        .required('Required'),
+      email: Yup.string().email('Invalid email address').required('Required'),
       password: Yup.string()
-        .min(8, "Password must be at least 8 characters")
-        .required("Password is required"),
+        .min(8, 'Password must be at least 8 characters')
+        .required('Password is required'),
       confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Passwords must match")
-        .required("Confirm Password is required"), // Adding confirm password validation
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        .required('Confirm Password is required'), // Adding confirm password validation
       month: Yup.number()
-        .required("Month is required")
-        .min(1, "Invalid month")
-        .max(12, "Invalid month"),
+        .required('Month is required')
+        .min(1, 'Invalid month')
+        .max(12, 'Invalid month'),
       day: Yup.number()
-        .required("Day is required")
-        .min(1, "Invalid day")
-        .max(31, "Invalid day"),
+        .required('Day is required')
+        .min(1, 'Invalid day')
+        .max(31, 'Invalid day'),
       year: Yup.number()
-        .required("Year is required")
-        .min(1900, "Invalid year")
-        .max(new Date().getFullYear(), "Invalid year"),
+        .required('Year is required')
+        .min(1900, 'Invalid year')
+        .max(new Date().getFullYear(), 'Invalid year'),
     }),
     onSubmit,
   });
@@ -174,7 +174,7 @@ const CreateNewAccount = () => {
           <h3 className=" sora-text text-5xl font-bold leading-[60.48px] text-white">
             BravoNet
           </h3>
-        </div>{" "}
+        </div>{' '}
         <h5 className="sora-text text-[32px] font-semibold leading-[10px] text-center text-white">
           Welcome to BravoNet
         </h5>
@@ -211,7 +211,7 @@ const CreateNewAccount = () => {
                 type="text"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.fullName || ""}
+                value={formik.values.fullName || ''}
               />
               <span className="absolute right-4">
                 <img
@@ -323,7 +323,7 @@ const CreateNewAccount = () => {
                   id="password"
                   name="password"
                   placeholder="Enter password"
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
@@ -355,7 +355,7 @@ const CreateNewAccount = () => {
                 className="input focus:outline-none focus:border-blue-600"
                 id="confirmPassword"
                 name="confirmPassword"
-                type={showConfirmPassword ? "text" : "password"} // Dynamic type based on showConfirmPassword
+                type={showConfirmPassword ? 'text' : 'password'} // Dynamic type based on showConfirmPassword
                 placeholder="Confirm password"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -399,7 +399,7 @@ const CreateNewAccount = () => {
             </button>
 
             <p className="text-center sora-text p mt-[5px]">
-              Already have an account?{" "}
+              Already have an account?{' '}
               <Link to="/login" className="text-[#0540F2]">
                 Login
               </Link>
@@ -412,3 +412,12 @@ const CreateNewAccount = () => {
 };
 
 export default CreateNewAccount;
+
+// https://bravonet.onrender.com/api/profile/update-profile
+
+//  <Image
+//    className="absolute w-full h-[200px]"
+//    loading="Lazy"
+//    cloudName="dml48ptj8"
+//    publicId="https://res.cloudinary.com/dml48ptj8/image/upload/v1731674830/profile_ljafjn.jpg"
+//  ></Image>;
