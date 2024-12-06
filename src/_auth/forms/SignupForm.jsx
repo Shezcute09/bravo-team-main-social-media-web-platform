@@ -4,6 +4,7 @@ import appleicon from "../../assets/images/appleicon.svg"; // Adjust the path
 import amico1 from "../../assets/images/amico1.png"; // Adjust the path
 import bravo from "../../assets/images/bravo.svg"; // Adjust the path
 import dot from "../../assets/images/dot.svg"; // Adjust the path
+import phone from "../../assets/phoneB.svg"; //phone logo
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const SignupForm = () => {
   return (
     <div className="flex justify-center items-center h-screen">
       {/* Left Section - Blue Banner */}
-      <div className="bg-blue-600 w-[602px] h-screen text-white flex flex-col justify-center items-center">
+      <div className=" hidden md:flex bg-blue-600 w-[602px] h-screen text-white flex-col justify-center items-center">
         <div className="flex flex-col items-center justify-center w-[396px] h-screen">
           <div className="flex items-center mb-4">
             <img src={bravo} alt="BravoNet" />
@@ -50,8 +51,9 @@ const SignupForm = () => {
       {/* Right Section - Sign Up Options */}
       <div className="flex w-[838px] justify-center h-screen items-center bg-white shadow-2xl">
         {/* Sign-Up Container */}
-        <div className="bg-white rounded-md p-8 w-[500px] ">
-          <h2 className="text-2xl font-bold text-blue-700 text-start mb-6">
+        <div className="bg-white w-full rounded-md p-8  md:w-[500px] ">
+          <img className="mx-auto md:hidden" src={phone} alt="logo" />
+          <h2 className="text-center text-2xl font-bold text-blue-700 md:text-start mb-6">
             Sign Up
           </h2>
 
@@ -84,7 +86,7 @@ const SignupForm = () => {
             {/* Create new account */}
             <button
               onClick={handleCreateAccount}
-              className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
+              className="w-full bg-blue-600 text-white py-2 rounded-full hover:bg-blue-700"
             >
               Create new account
             </button>
@@ -92,21 +94,22 @@ const SignupForm = () => {
             <p className="mt-4 text-sm text-gray-600">
               By signing up, you agree to the{" "}
               <Navigate to="" className="text-blue-600 underline">
-                Terms of Service
-              </Navigate>{" "}
-              and{" "}
-              <Navigate to="#" className="text-blue-600 underline">
-                Privacy Policy
+                Terms of Service{" "}
               </Navigate>
-              .
+              and
+              <Navigate to="#" className="text-blue-600 underline">
+                Privacy Policy of the company.{" "}
+              </Navigate>
             </p>
 
-            <p className="mt-6 text-center">Already have an account?</p>
+            <p className="mt-6 text-center font-bold">
+              Already have an account?
+            </p>
 
             {/* Login Button */}
             <button
               onClick={() => navigate("/login")}
-              className="w-full border-2 border-blue-600 text-black py-2 rounded-md"
+              className="w-full border-2 border-blue-600 text-black py-2 rounded-full"
             >
               Login
             </button>
@@ -118,3 +121,4 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
+// https://bravonet.onrender.com/api/auth/verify-otp
