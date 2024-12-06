@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
+
 const Userprofile = () => {
   const navigate = useNavigate();
   const jwtToken = localStorage.getItem('jwtToken');
@@ -132,6 +133,7 @@ const Userprofile = () => {
 
   return (
     <section className="flex flex-col">
+
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -241,6 +243,7 @@ const Userprofile = () => {
               </div>
             </div>
             <hr className="mt-48 text-black" />
+
 
             {/* Formik Form */}
             <div className="min-w-[80%] mt-6">
