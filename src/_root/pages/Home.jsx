@@ -1,15 +1,15 @@
-import prof from "../../assets/images/profile.png";
-import { IoLocationOutline } from "react-icons/io5";
-import { HiOutlineGif } from "react-icons/hi2";
-import gallery from "../../assets/gallery.svg";
-import draft from "../../assets/draft.svg";
-import { CiFaceSmile } from "react-icons/ci";
-import { IoIosMore } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom";
-import { MdFavoriteBorder } from "react-icons/md";
-import { FaRegComment } from "react-icons/fa";
-import { VscShare } from "react-icons/vsc";
-import { AiOutlineRetweet } from "react-icons/ai";
+import prof from '../../assets/images/profile.png';
+import { IoLocationOutline } from 'react-icons/io5';
+import { HiOutlineGif } from 'react-icons/hi2';
+import gallery from '../../assets/gallery.svg';
+import draft from '../../assets/draft.svg';
+import { CiFaceSmile } from 'react-icons/ci';
+import { IoIosMore } from 'react-icons/io';
+import { Link, useNavigate } from 'react-router-dom';
+import { MdFavoriteBorder } from 'react-icons/md';
+import { FaRegComment } from 'react-icons/fa';
+import { VscShare } from 'react-icons/vsc';
+import { AiOutlineRetweet } from 'react-icons/ai';
 
 const Home = () => {
   let redir = useNavigate();
@@ -17,13 +17,19 @@ const Home = () => {
     <>
       <div className="w-full px-10 justify center items-center">
         <div className="w-full flex flex-wrap gap-4  lg:gap-10 mt-6 justify-center items-center ">
-          <button onClick={() => redir("/forYou")} className="w-20 lg:w-32 h-10 font-sora font-medium text-lg text-black hover:bg-blue-700 hover:text-white  rounded-lg bg-[#F1F1F1] ">
+          <button
+            onClick={() => redir('/forYou')}
+            className="w-20 lg:w-32 h-10 font-sora font-medium text-lg text-black hover:bg-blue-700 hover:text-white  rounded-lg bg-[#F1F1F1] "
+          >
             For you
           </button>
           <button className="w-20 lg:w-32 h-10 font-sora font-medium text-lg text-black hover:bg-blue-700 hover:text-white  rounded-lg  bg-[#F1F1F1]">
             Friends
           </button>
-          <button  onClick={() => redir("/community")} className="w-28 lg:w-32  h-10 font-sora font-medium text-lg text-black hover:bg-blue-700 hover:text-white  rounded-lg bg-[#F1F1F1]">
+          <button
+            onClick={() => redir('/community')}
+            className="w-28 lg:w-32  h-10 font-sora font-medium text-lg text-black hover:bg-blue-700 hover:text-white  rounded-lg bg-[#F1F1F1]"
+          >
             Community
           </button>
           <button className="w-20 lg:w-32 h-10 font-sora font-medium text-lg text-black hover:bg-blue-700 hover:text-white  rounded-lg bg-[#F1F1F1] ">
@@ -31,7 +37,7 @@ const Home = () => {
           </button>
         </div>
         <hr className="text-black mt-8" />
-    
+
         <div>
           {/* what to post */}
           <div className="flex flex-row gap-4 mt-8">
@@ -103,17 +109,23 @@ const Home = () => {
           </div>
 
           {/* like,comment.repost and share */}
-          <div className=" flex flex-row flex-wrap"> 
+          <div className=" flex flex-row flex-wrap">
             <div className="flex flex-1 gap-6">
-              <button className="font-sora font-normal text-base ">15 Likes</button>
-              <button className="font-sora font-normal text-base ">10 Comments</button>
-              <button className="font-sora font-normal text-base ">2 repost</button>
+              <button className="font-sora font-normal text-base ">
+                15 Likes
+              </button>
+              <button className="font-sora font-normal text-base ">
+                10 Comments
+              </button>
+              <button className="font-sora font-normal text-base ">
+                2 repost
+              </button>
             </div>
             <div className="flex gap-6 ">
-            <MdFavoriteBorder className="w-8 h-8" />
-            <FaRegComment className="w-8 h-8"/>
-            <AiOutlineRetweet className="w-8 h-8"/>
-            <VscShare className="w-8 h-8"/>
+              <MdFavoriteBorder className="w-8 h-8" />
+              <FaRegComment className="w-8 h-8" />
+              <AiOutlineRetweet className="w-8 h-8" />
+              <VscShare className="w-8 h-8" />
             </div>
           </div>
           <hr />
