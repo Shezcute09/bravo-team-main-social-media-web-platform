@@ -5,12 +5,17 @@ import { IoClose } from 'react-icons/io5';
 import { Image } from 'cloudinary-react';
 import camera from '../../assets/camera.svg';
 import close from '../../assets/close.svg';
+import img from '../../assets/images/image.png';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import axios from 'axios';
 
 const Userprofile = () => {
   const navigate = useNavigate();
   const jwtToken = localStorage.getItem('jwtToken');
+  const [profilePicture, setProfilePicture] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -33,6 +38,59 @@ const Userprofile = () => {
     location: '',
   };
 
+  const handlePictureChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setProfilePicture(file);
+      setPreviewImage(URL.createObjectURL(file));
+    }
+  };
+
+  console.log('File to upload:', profilePicture);
+
+  const handlePictureSave = async () => {
+    if (!profilePicture) {
+      alert('No picture selected');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', profilePicture);
+    console.log(jwtToken);
+
+    try {
+      const response = await axios.post(
+        'https://bravonet.onrender.com/api/uploads/profile_picture/upload-profile-picture',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+            'Content-Type': 'multipart/form-data',
+          },
+          onUploadProgress: (progressEvent) => {
+            const percentage = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total
+            );
+            setUploadProgress(percentage);
+          },
+        }
+      );
+
+      alert('Picture uploaded successfully');
+      console.log('Server Response:', response.data);
+    } catch (error) {
+      if (error.response) {
+        console.error('Server Error Response:', error.response.data);
+        console.error('Status Code:', error.response.status);
+      } else if (error.request) {
+        console.error('No response received:', error.request);
+      } else {
+        console.error('Error setting up the request:', error.message);
+      }
+      alert('Failed to upload picture. Please try again');
+    }
+  };
+
   const handleSubmit = async (values, { resetForm }) => {
     console.log('Form submitted:', values);
 
@@ -40,8 +98,6 @@ const Userprofile = () => {
       const formattedData = {
         bio: values.bio,
         location: values.location,
-        // dateOfBirth: '1995-05-14',
-        // privacy: 'public',
         username: values.username,
         name: values.name,
       };
@@ -121,16 +177,66 @@ const Userprofile = () => {
             </div>
 
             {/* integrate display picture  remove the red border*/}
-            <div className="flex gap-72 flex-row right absolute top-44 h-[100px] min-w-[50%]">
+            {/* <div className="flex gap-72 flex-row right absolute top-44 h-[100px] min-w-[50%]">
               <div className="">
-                <img src="" alt="DP" />
+                <img src={img} alt="DP" />
               </div>
               <div className="mt-10 font-sora text-base font-semibold ">
                 <button className="border-2 mx-3 border-blue-600 rounded-md w-[150px] h-10 text-white  bg-blue-600">
-                  Change Profile
+                  Change Picture
                 </button>
                 <button className="border-2 border-[#F1F3F4] bg-[#F1F3F4] rounded-md w-[150px] h-10 text-red-600 bg-[#F1F3F4">
-                  Change Profile
+                  Save Picture
+                </button>
+              </div>
+            </div>
+            <hr className="mt-48 text-black" /> */}
+
+            {/* Profile Picture Section */}
+            <div className="flex gap-72 flex-row right absolute top-44 h-[100px] min-w-[50%]">
+              <div>
+                {previewImage ? (
+                  <img
+                    src={previewImage}
+                    alt="Preview"
+                    className="w-24 h-24 rounded-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src={img}
+                    alt="Default"
+                    className="w-24 h-24 rounded-full object-cover"
+                  />
+                )}
+                {uploadProgress > 0 && (
+                  <div className="mt-4">
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                      <div
+                        className="bg-blue-600 h-2.5 rounded-full"
+                        style={{ width: `${uploadProgress}%` }}
+                      ></div>
+                    </div>
+                    <p className="mt-2 text-sm text-gray-600 text-center">
+                      {uploadProgress}%
+                    </p>
+                  </div>
+                )}
+              </div>
+              <div className="flex mt-10 font-sora text-base font-semibold">
+                <label className="border-2 mx-3 border-blue-600 rounded-md w-[150px] h-10 text-white bg-blue-600 flex items-center justify-center cursor-pointer">
+                  Change Picture
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handlePictureChange}
+                    className="hidden"
+                  />
+                </label>
+                <button
+                  onClick={handlePictureSave}
+                  className="border-2 border-[#F1F3F4] bg-[#F1F3F4] rounded-md w-[150px] h-10 text-red-600"
+                >
+                  Save Picture
                 </button>
               </div>
             </div>
