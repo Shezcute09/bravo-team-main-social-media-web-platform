@@ -23,7 +23,7 @@ const SetNewPassword = () => {
   let [Newtoggle, setNewToggle] = useState(false);
 
   return (
-    <div className="h-screen w-full flex flex-row flex-wrap">
+    <div className="h-screen w-full flex">
       {/* blue side */}
       <div className="hidden bg-[#0540F2] w-[40%] h-screen text-white md:flex flex-col justify-center items-center">
         <div className="flex mt-10">
@@ -48,7 +48,7 @@ const SetNewPassword = () => {
         </div>
       </div>
       {/*white side */}
-      fatima
+
       <div className="justify-center items-center w-full md:w-[60%] px-6 md:mx-auto md:mt-20 lg:mt-32 ">
         <div className="w-full md:w-[400px] lg:w-[600px] px-5 md:ml-10 lg:ml-20">
           <div className="flex">
@@ -124,10 +124,7 @@ const SetNewPassword = () => {
                     <div className="relative flex flex-col gap-1 ">
                       <Field
                         id="Newpassword"
-                        clasgit
-                        pull
-                        origin
-                        masName="text-sm input focus:outline-none focus:border-blue-600 font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]"
+                        className="text-sm input focus:outline-none focus:border-blue-600 font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]"
                         name="Newpassword"
                         type={Newtoggle ? "text" : "password"}
                         placeholder="Re-Enter New Password"

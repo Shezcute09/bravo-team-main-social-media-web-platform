@@ -121,4 +121,3 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
-// https://bravonet.onrender.com/api/auth/verify-otp

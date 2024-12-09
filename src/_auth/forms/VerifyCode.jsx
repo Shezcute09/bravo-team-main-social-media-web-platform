@@ -34,7 +34,7 @@ const VerifyCode = () => {
       const response = await axios.post(
         "https://bravonet.onrender.com/api/auth/verify-otp",
         {
-          code: values.code,
+          otp: values.code,
           email: values.email,
         }
       );
