@@ -38,7 +38,7 @@ const Leftside = () => {
               <li key={link.label} className=''>
               <NavLink to={link.route} className="flex gap-2 items-center p-3">
                 {/* get the logo url */}
-              <img src={link.imgURL} alt="" className='group-hover:invert-black' />
+              <img src={link.imgURL} alt="icon" className='group-hover:invert-black' />
                   {link.label} 
               </NavLink>
             </li>

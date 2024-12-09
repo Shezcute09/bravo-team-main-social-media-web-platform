@@ -9,7 +9,7 @@
 }
 
 .sora-text {
-  font-family: "Sora", sans-serif;
+  font-family: 'Sora', sans-serif;
 }
 
 .button-bg-blue {
@@ -33,4 +33,34 @@
   width: 100%;
   background: #ffffff;
   color: #0540f2;
+}
+
+/* Loader styling */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.loader {
+  font-size: 40px;
+  font-weight: bold;
+  color: #0000;
+  animation: loader27-animation 1s infinite alternate linear;
+  background: radial-gradient(circle closest-side, #000 94%, #0000)
+    right/calc(200% - 1em) 100%;
+}
+
+.loader::before {
+  content: 'Loading...';
+  background: inherit;
+  background-clip: text;
+  background-image: radial-gradient(circle closest-side, #fff 94%, #000);
+}
+
+@keyframes loader27-animation {
+  100% {
+    background-position: left;
+  }
 }
