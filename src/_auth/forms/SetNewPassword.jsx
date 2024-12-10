@@ -77,16 +77,13 @@ const SetNewPassword = () => {
         </div>
       </div>
       {/*white side */}
-<<<<<<< HEAD
 
-=======
->>>>>>> 28574db20d197e39122e6e38ac198cb98b714203
       <div className="justify-center items-center w-full md:w-[60%] px-6 md:mx-auto md:mt-20 lg:mt-32 ">
         <div className="w-full md:w-[400px] lg:w-[600px] px-5 md:ml-10 lg:ml-20">
           <div className="flex">
             <MdOutlineKeyboardArrowLeft className="text-2xl hidden md:flex" />
             <button
-              onClick={() => redir('/login')}
+              onClick={() => redir("/login")}
               className="font-bold text-base text-black hidden md:flex"
             >
               Back to Login
@@ -161,7 +158,6 @@ const SetNewPassword = () => {
                       </div>
                     </div>
                   </fieldset>
-<<<<<<< HEAD
                   {errors.password && touched.password ? (
                     <div className="">{errors.password}</div>
                   ) : null}
@@ -193,10 +189,8 @@ const SetNewPassword = () => {
                   </fieldset>
                   {errors.Newpassword && touched.Newpassword ? (
                     <div className="">{errors.Newpassword}</div>
-=======
                   {errors.newPassword && touched.newPassword ? (
                     <div className="">{errors.newPassword}</div>
->>>>>>> 28574db20d197e39122e6e38ac198cb98b714203
                   ) : null}
 
                   <button
