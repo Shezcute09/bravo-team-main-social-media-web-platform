@@ -53,7 +53,7 @@ const SetNewPassword = () => {
   };
 
   return (
-    <div className="h-screen w-full flex flex-row flex-wrap">
+    <div className="h-screen w-full flex">
       {/* blue side */}
       <div className="hidden bg-[#0540F2] w-[40%] h-screen text-white md:flex flex-col justify-center items-center">
         <div className="flex mt-10">
@@ -78,12 +78,13 @@ const SetNewPassword = () => {
         </div>
       </div>
       {/*white side */}
+
       <div className="justify-center items-center w-full md:w-[60%] px-6 md:mx-auto md:mt-20 lg:mt-32 ">
         <div className="w-full md:w-[400px] lg:w-[600px] px-5 md:ml-10 lg:ml-20">
           <div className="flex">
             <MdOutlineKeyboardArrowLeft className="text-2xl hidden md:flex" />
             <button
-              onClick={() => redir('/login')}
+              onClick={() => redir("/login")}
               className="font-bold text-base text-black hidden md:flex"
             >
               Back to Login
@@ -158,6 +159,37 @@ const SetNewPassword = () => {
                       </div>
                     </div>
                   </fieldset>
+                  {errors.password && touched.password ? (
+                    <div className="">{errors.password}</div>
+                  ) : null}
+
+                  <fieldset className="mt-4">
+                    <label className="font-bold text-xl" htmlFor="Newpassword">
+                      Re-Enter New Password
+                    </label>
+                    <div className="relative flex flex-col gap-1 ">
+                      <Field
+                        id="Newpassword"
+                        className="text-sm input focus:outline-none focus:border-blue-600 font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]"
+                        name="Newpassword"
+                        type={Newtoggle ? "text" : "password"}
+                        placeholder="Re-Enter New Password"
+                      />
+                      <div className="absolute top-4 right-3 text-blue-800">
+                        {Newtoggle ? (
+                          <PiEyeLight
+                            onClick={() => setNewToggle((prev) => !prev)}
+                          />
+                        ) : (
+                          <PiEyeSlashThin
+                            onClick={() => setNewToggle((prev) => !prev)}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </fieldset>
+                  {errors.Newpassword && touched.Newpassword ? (
+                    <div className="">{errors.Newpassword}</div>
                   {errors.newPassword && touched.newPassword ? (
                     <div className="">{errors.newPassword}</div>
                   ) : null}
