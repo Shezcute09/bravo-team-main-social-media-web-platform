@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
-
 const Userprofile = () => {
   const navigate = useNavigate();
   const jwtToken = localStorage.getItem('jwtToken');
@@ -47,8 +46,6 @@ const Userprofile = () => {
     }
   };
 
-  console.log('File to upload:', profilePicture);
-
   const handlePictureSave = async () => {
     if (!profilePicture) {
       alert('No picture selected');
@@ -56,17 +53,21 @@ const Userprofile = () => {
     }
 
     const formData = new FormData();
-    formData.append('file', profilePicture);
-    console.log(jwtToken);
+    formData.append('profilePicture', profilePicture);
+
+    console.log('File to upload:', profilePicture.name);
+
+    console.log('formData Contents: ');
+
+    console.log('File selected:', profilePicture.name, profilePicture.type);
 
     try {
       const response = await axios.post(
-        'https://bravonet.onrender.com/api/uploads/profile_picture/upload-profile-picture',
+        'https://bravonet.onrender.com/api/upload-profile-picture',
         formData,
         {
           headers: {
             Authorization: `Bearer ${jwtToken}`,
-            'Content-Type': 'multipart/form-data',
           },
           onUploadProgress: (progressEvent) => {
             const percentage = Math.round(
@@ -105,7 +106,7 @@ const Userprofile = () => {
 
       // Send data to the remote server
       const response = await axios.put(
-        'https://bravonet.onrender.com/api/profile/update-profile',
+        'https://bravonet.onrender.com/api/update-profile',
         formattedData,
         {
           headers: {
@@ -131,9 +132,16 @@ const Userprofile = () => {
     navigate('/');
   };
 
+  useEffect(() => {
+    return () => {
+      if (previewImage) {
+        URL.revokeObjectURL(previewImage);
+      }
+    };
+  }, [previewImage]);
+
   return (
     <section className="flex flex-col">
-
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -243,7 +251,6 @@ const Userprofile = () => {
               </div>
             </div>
             <hr className="mt-48 text-black" />
-
 
             {/* Formik Form */}
             <div className="min-w-[80%] mt-6">

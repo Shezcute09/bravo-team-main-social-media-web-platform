@@ -29,6 +29,7 @@ const SetNewPassword = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     // Handle form submission
+    console.log(values)
     try {
       const response = await axios.post(
         'https://bravonet.onrender.com/api/auth/reset-password',
@@ -37,7 +38,7 @@ const SetNewPassword = () => {
 
       console.log('Response before checking:', response.data);
 
-      if (!response.ok) {
+     if (response.status !== 200) {
         throw new Error('Failed to submit form');
       }
 
