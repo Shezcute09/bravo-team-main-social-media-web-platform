@@ -29,7 +29,7 @@ const SetNewPassword = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     // Handle form submission
-    console.log(values)
+    console.log(values);
     try {
       const response = await axios.post(
         'https://bravonet.onrender.com/api/auth/reset-password',
@@ -38,7 +38,7 @@ const SetNewPassword = () => {
 
       console.log('Response before checking:', response.data);
 
-     if (response.status !== 200) {
+      if (response.status !== 200) {
         throw new Error('Failed to submit form');
       }
 
@@ -84,7 +84,7 @@ const SetNewPassword = () => {
           <div className="flex">
             <MdOutlineKeyboardArrowLeft className="text-2xl hidden md:flex" />
             <button
-              onClick={() => redir("/login")}
+              onClick={() => redir('/login')}
               className="font-bold text-base text-black hidden md:flex"
             >
               Back to Login
@@ -172,7 +172,7 @@ const SetNewPassword = () => {
                         id="Newpassword"
                         className="text-sm input focus:outline-none focus:border-blue-600 font-normal text-black border-2 rounded-md py-2 px-4 border-[#0540F2]"
                         name="Newpassword"
-                        type={Newtoggle ? "text" : "password"}
+                        type={Newtoggle ? 'text' : 'password'}
                         placeholder="Re-Enter New Password"
                       />
                       <div className="absolute top-4 right-3 text-blue-800">
@@ -190,6 +190,7 @@ const SetNewPassword = () => {
                   </fieldset>
                   {errors.Newpassword && touched.Newpassword ? (
                     <div className="">{errors.Newpassword}</div>
+                  ) : null}
                   {errors.newPassword && touched.newPassword ? (
                     <div className="">{errors.newPassword}</div>
                   ) : null}

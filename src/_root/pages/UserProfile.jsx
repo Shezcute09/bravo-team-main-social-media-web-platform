@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { IoClose } from 'react-icons/io5';
@@ -106,7 +106,7 @@ const Userprofile = () => {
 
       // Send data to the remote server
       const response = await axios.put(
-        'https://bravonet.onrender.com/api/update-profile',
+        'https://bravonet.onrender.com/api/profile/update-profile',
         formattedData,
         {
           headers: {
