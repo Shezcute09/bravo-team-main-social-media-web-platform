@@ -54,6 +54,7 @@ const App = () => {
     try {
       const response = await axios.get(
         'https://bravonet.onrender.com/api/profile/view-profile/' + userId,
+        // 'https://bravonet.onrender.com/api/view-profile/' + userId,
         {
           headers: {
             Authorization: `Bearer ${jwtToken}`,
@@ -64,6 +65,8 @@ const App = () => {
       if (response.status !== 200) {
         throw new Error('Network response was not ok');
       }
+      console.log('userId', userId);
+
       console.log('Response:', response.data);
       navigate('/profile');
     } catch (error) {
