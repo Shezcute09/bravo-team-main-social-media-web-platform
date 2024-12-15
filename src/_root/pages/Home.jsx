@@ -94,12 +94,15 @@ const Home = () => {
               <IoIosMore />
             </div>
           </div>
-
+  {/* write up post and picture */}
           <div>
             <h1>Map through posted writeUp</h1>
           </div>
-          <div>
-            <h1>Map through posted individual posted images and display</h1>
+          <div className="grid grid-cols-2">
+              <img src="" alt="image" />
+              <img src="" alt="image" />
+              <img src="" alt="image" />
+              <img src="" alt="image" />
           </div>
 
           {/* like,comment.repost and share */}

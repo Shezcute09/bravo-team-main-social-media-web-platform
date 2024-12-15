@@ -11,7 +11,7 @@ export const sidebarLinks = [
     },
     {
         imgURL:"/assets/notify.svg",
-        route: "/notify",
+        route: "/forYou",
         label: "Notification"
     },
     {

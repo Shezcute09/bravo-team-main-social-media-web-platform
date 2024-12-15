@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
 
+
 const SignupForm = lazy(() => import("./_auth/forms/SignupForm"));
 const AuthLayout = lazy(() => import("./_auth/AuthLayout"));
 const RootLayout = lazy(() => import("./_root/RootLayout"));
@@ -16,6 +17,7 @@ const Home = lazy(() => import("./_root/pages/Home"));
 const UserProfile = lazy(() => import("./_root/pages/UserProfile"));
 const Profile = lazy(()=>import("./_root/pages/Profile")) ;
 const Follower = lazy(()=>import("./_root/pages/Follower")) ;
+const Following  = lazy(()=>import("./_root/pages/following")) ;
 const Community = lazy(()=>import("./_root/pages/Community")) ;
 const Messages = lazy(()=>import("./_root/pages/Messages")) ;
 const ForYou = lazy(()=>import("./_root/pages/ForYou")) ;
@@ -54,6 +56,7 @@ function App() {
         <Route path="/community" element={<Community />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/forYou" element={<ForYou />} />
+        <Route path="/following" element={<Following />} />
       </Route>
 
       {/* 404 Not Found Route */}
