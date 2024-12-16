@@ -12,15 +12,16 @@ const ForgotPassword = lazy(() => import('./_auth/forms/ForgotPassword'));
 const SetNewPassword = lazy(() => import('./_auth/forms/SetNewPassword'));
 const VerifyCode = lazy(() => import('./_auth/forms/VerifyCode'));
 
+
 const Home = lazy(() => import('./_root/pages/Home'));
 const UserProfile = lazy(() => import('./_root/pages/UserProfile'));
 const Profile = lazy(() => import('./_root/pages/Profile'));
 const Follower = lazy(() => import('./_root/pages/Follower'));
+const Following  = lazy(()=>import("./_root/pages/following")) ;
 const Community = lazy(() => import('./_root/pages/Community'));
 const Messages = lazy(() => import('./_root/pages/Messages'));
 const ForYou = lazy(() => import('./_root/pages/ForYou'));
 const NotFoundPage = lazy(() => import('./_root/pages/NotFoundPage'));
-
 const CommentsPage = lazy(() => import('./components/comments/CommentsPage'));
 const PostPage = lazy(() => import('./components/post/PostPage'));
 
@@ -57,12 +58,14 @@ function App() {
             <Route path="/verify-code" element={<VerifyCode />} />
           </Route>
 
+
           <Route path="/" element={<RootLayout />}>
             <Route index element={<Navigate to="/home" replace />} />
             <Route path="home" element={<Home />} />
             <Route path="/user-profile" element={<UserProfile />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/follower" element={<Follower />} />
+            <Route path="/following" element={<Following />} />
             <Route path="/community" element={<Community />} />
             <Route path="/messages" element={<Messages />} />
             <Route path="/forYou" element={<ForYou />} />
